@@ -1,0 +1,415 @@
+\documentclass[12pt, a4paper]{extreport}
+
+%%% Предметный указатель
+\usepackage{imakeidx}
+\makeindex[columns=2, intoc, options={-s preamble/style.ist}]
+
+%%% Приложения
+\usepackage[toc, title]{appendix}
+\renewcommand{\appendixtocname}{Приложения}
+\renewcommand{\appendixpagename}{Приложения}
+
+%%% Русский язык и шрифты
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\usepackage[english,main=russian]{babel}
+
+\defaultfontfeatures{Rederer=Basic,Ligatures={TeX}}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+%%% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{icomma}
+\usepackage{stmaryrd}
+
+%%% Рисование графики
+\usepackage{tikz}        % Графический пакет tikz
+\usepackage{tikz-cd}     % Коммутативные диаграммы
+\usepackage{tkz-euclide} % Геометрия
+\usepackage{stackengine} % Многострочные тексты в картинках
+\usetikzlibrary{angles, babel, quotes, matrix}
+\usetikzlibrary{calc}
+
+%%% Перенос знаков в формулах (по Львовскому)
+\newcommand{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}    % Для вставки рисунков
+\setlength\fboxsep{3pt}  % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}     % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs, arydshln} % Дополнительная работа с таблицами
+\usepackage{longtable}                                  % Длинные таблицы
+\usepackage{multirow}                                   % Слияние строк в таблице
+
+%%% Векторы
+\usepackage[b]{esvect}
+
+%%% Оформление страницы
+\usepackage{geometry}     % Простой способ задавать поля
+\usepackage{setspace}     % Интерлиньяж
+\usepackage{enumitem}     % Настройка окружений itemize и enumerate
+\setlist{leftmargin=25pt} % Отступы в itemize и enumerate
+
+\geometry{top=25mm}    % Поля сверху страницы
+\geometry{bottom=30mm} % Поля снизу страницы
+\geometry{left=20mm}   % Поля слева страницы
+\geometry{right=20mm}  % Поля справа страницы
+
+\setlength\parindent{15pt}        % Устанавливает длину красной строки 15pt
+\linespread{1.3}                  % Коэффициент межстрочного интервала
+\usepackage{multicol}             % Для текста в нескольких колонках
+\usepackage{soul}                 % Модификаторы начертания
+
+%%% Оглавление
+\usepackage{tocloft}
+\tocloftpagestyle{main}
+
+%%%% Нумерация уравнений
+%\makeatletter
+%\def\eqref{\@ifstar\@eqref\@@eqref}
+%\def\@eqref#1{\textup{\tagform@{\ref*{#1}}}}
+%\def\@@eqref#1{\textup{\tagform@{\ref{#1}}}}
+%\makeatother                      % \eqref* без гиперссылки
+%\numberwithin{equation}{section}  % Нумерация вида (номер_секции).(номер_уравнения)
+%\mathtoolsset{showonlyrefs=false} % Номера только у формул с \eqref{} в тексте.
+
+%%% Гиперссылки
+\usepackage{hyperref}
+\usepackage[dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{
+	unicode=true,            % русские буквы в разделах PDF
+	colorlinks=true,         % Цветные ссылки вместо ссылок в рамках
+	linkcolor=black!15!blue, % Внутренние ссылки
+	citecolor=green,         % Ссылки на библиографию
+	filecolor=magenta,       % Ссылки на файлы
+	urlcolor=NavyBlue,       % Ссылки на URL
+}
+
+%%% Теоремы
+\theoremstyle{plain}
+\newtheorem  {theorem}     {Теорема}    [section]
+\newtheorem* {theorem*}    {Теорема}
+\newtheorem  {lemma}       {Лемма}      [section]
+\newtheorem* {lemma*}      {Лемма}
+\newtheorem  {proposition} {Утверждение}[section]
+\newtheorem* {proposition*}{Утверждение}
+\newtheorem* {corollary}   {Следствие}
+
+\theoremstyle{definition}
+\newtheorem  {definition}  {Определение}[section]
+\newtheorem* {definition*} {Определение}
+\newtheorem  {exercise}    {Упражнение}
+\newtheorem* {exercise*}   {Упражнение}
+\newtheorem  {problem}     {Задача}
+\newtheorem* {problem*}    {Задача}
+\newtheorem  {reminder}    {Напоминание}
+\newtheorem* {reminder*}   {Напоминание}
+\newtheorem  {example}     {Пример}
+\newtheorem* {example*}    {Пример}
+\newtheorem* {examples}    {Примеры}
+
+\theoremstyle{remark}
+\newtheorem  {note}        {Замечание}
+\newtheorem* {note*}       {Замечание}
+\newtheorem* {solution}    {Решение}
+
+%%% Свои символы и команды
+\renewcommand{\epsilon} {\varepsilon}
+\renewcommand{\phi}     {\varphi}
+\renewcommand{\kappa}   {\varkappa}
+\renewcommand{\le}      {\leqslant}
+\renewcommand{\leq}     {\leqslant}
+\renewcommand{\ge}      {\geqslant}
+\renewcommand{\geq}     {\geqslant}
+\renewcommand{\emptyset}{\varnothing}
+
+\DeclareMathOperator{\ord}  {ord}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Char} {char}
+\DeclareMathOperator{\chr}  {char}
+\DeclareMathOperator{\cl}   {cl}
+\DeclareMathOperator{\rk}   {rk}
+\DeclareMathOperator{\pr}   {pr}
+\DeclareMathOperator{\Ker}  {Ker}
+\DeclareMathOperator{\Int}  {int}
+\DeclareMathOperator{\sign} {sign}
+\DeclareMathOperator{\sgn}  {sgn}
+\DeclareMathOperator{\im}   {Im}
+\DeclareMathOperator{\re}   {Re}
+
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\Cm}{\mathbb{C}}
+\newcommand{\F} {\mathbb{F}}
+\newcommand{\id}{\mathrm{id}}
+
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\TT}{\mathcal{T}}
+
+\newcommand{\seq}[2]{\fc{#1}_{#2}^\infty}
+
+\newcommand{\ish}[2]{\underset{#2}{#1}}
+
+\let\eps  \epsilon
+\let\from \leftarrow
+\let\tto  \longrightarrow
+\let\ffrom\longleftarrow
+\let\is   \leftrightarrow
+\let\iss  \longleftrightarrow
+\let\To   \Longrightarrow
+\let\From \Longleftarrow
+\let\hk   \hookrightarrow
+
+\renewcommand{\implies}{\;\To\;}
+
+\newcommand{\rev}[1]{{{#1}^{-1}}}
+\newcommand{\ol} [1]{\overline{#1}}
+\newcommand{\dv}    {\mid}
+\newcommand{\ndv}   {\nmid}
+
+\newcommand{\theoremindex}[6]{
+  \ifstrempty{#1} {
+    \index{#4#2!
+          Глава \thechapter\ \thesection!
+          \alph{#6}@#3 #5}
+  }{
+    \index{#4#2!
+          Глава \thechapter\ \thesection!
+          \alph{#6}@#3 #5. #1}
+  }
+}
+
+\newcommand{\mylbl}[1]{\label{#1\arabic{chapter}.\arabic{section}.\arabic{#1}}}
+
+%%% Окружения (начинаются с j или k)
+\newcommand{\jtheorem}[2][]{
+  \begin{theorem}[#1]
+    #2 \theoremindex{#1}{Теоремы}{Теорема}{.@}{\thetheorem}{theorem}
+    \mylbl{theorem}
+  \end{theorem}}
+\newcommand{\jtheor}      [2][]{\jtheorem[#1]{#2}}
+\newcommand{\jthrm}       [2][]{\jtheorem[#1]{#2}}
+\newcommand{\jth}         [2][]{\jtheorem[#1]{#2}}
+
+\newcommand{\ktheorem}    [2][]{\begin{theorem*}[#1]#2\end{theorem*}}
+\newcommand{\ktheor}      [2][]{\ktheorem[#1]{#2}}
+\newcommand{\kthrm}       [2][]{\ktheorem[#1]{#2}}
+\newcommand{\kth}         [2][]{\ktheorem[#1]{#2}}
+
+\newcommand{\jlemma}[2][]{
+  \begin{lemma}[#1]
+    #2 \theoremindex{#1}{Леммы}{Лемма}{}{\thelemma}{lemma}
+    \mylbl{lemma}
+  \end{lemma} }
+\newcommand{\jlmm}        [2][]{\jlemma[#1]{#2}}
+\newcommand{\jlm}         [2][]{\jlemma[#1]{#2}}
+
+\newcommand{\klemma}      [2][]{\begin{lemma*}[#1]#2\end{lemma*}}
+\newcommand{\klmm}        [2][]{\klemma[#1]{#2}}
+\newcommand{\klm}         [2][]{\klemma[#1]{#2}}
+
+\newcommand{\jproposition}[2][]{
+  \begin{proposition}[#1]
+    #2 \theoremindex{#1}{Утверждения}{Утверждение}{}{\theproposition}{proposition}
+    \mylbl{proposition}
+  \end{proposition}}
+\newcommand{\jpropos}     [2][]{\jproposition[#1]{#2}}
+\newcommand{\jprop}       [2][]{\jproposition[#1]{#2}}
+\newcommand{\jprp}        [2][]{\jproposition[#1]{#2}}
+
+\newcommand{\kproposition}[2][]{\begin{proposition*}[#1]#2\end{proposition*}}
+\newcommand{\kpropos}     [2][]{\kproposition[#1]{#2}}
+\newcommand{\kprop}       [2][]{\kproposition[#1]{#2}}
+\newcommand{\kprp}        [2][]{\kproposition[#1]{#2}}
+
+\newcommand{\jexercise}   [1]{\begin{exercise}#1\mylbl{exercise}\end{exercise}}
+\newcommand{\jexrc}       [1]{\jexercise{#1}}
+\newcommand{\jexc}        [1]{\jexercise{#1}}
+\newcommand{\jexr}        [1]{\jexercise{#1}}
+
+\newcommand{\kexercise}   [1]{\begin{exercise*}#1\end{exercise*}}
+\newcommand{\kexrc}       [1]{\kexercise{#1}}
+\newcommand{\kexc}        [1]{\kexercise{#1}}
+\newcommand{\kexr}        [1]{\kexercise{#1}}
+
+\newcommand{\jproblem}    [1]{\begin{problem}#1\mylbl{problem}\end{problem}}
+\newcommand{\jprb}        [1]{\jproblem{#1}}
+
+\newcommand{\kproblem}    [1]{\begin{problem}#1\end{problem}}
+\newcommand{\kprb}        [1]{\kproblem{#1}}
+
+\newcommand{\jproof}      [1]{\begin{proof}#1\end{proof}}
+\newcommand{\jprof}       [1]{\jproof{#1}}
+\newcommand{\jprf}        [1]{\jproof{#1}}
+
+\newcommand{\jdefinition} [2][]{
+  \begin{definition}[#1]
+    #2 \theoremindex{#1}{Определения}{Определение}{}{\thedefinition}{definition}
+    \mylbl{definition}
+  \end{definition}}
+\newcommand{\jdefine}     [2][]{\jdefinition[#1]{#2}}
+\newcommand{\jdf}         [2][]{\jdefinition[#1]{#2}}
+
+\newcommand{\kdefinition} [2][]{\begin{definition*}[#1]#2\end{definition*}}
+\newcommand{\kdefine}     [2][]{\kdefinition[#1]{#2}}
+\newcommand{\kdf}         [2][]{\kdefinition[#1]{#2}}
+
+\newcommand{\jcorollary}  [1]{\begin{corollary}#1\end{corollary}}
+\newcommand{\jcrlr}       [1]{\jcorollary{#1}}
+\newcommand{\jcrl}        [1]{\jcorollary{#1}}
+\newcommand{\jcr}         [1]{\jcorollary{#1}}
+
+\newcommand{\jnote}       [1]{\begin{note}#1\mylbl{note}\end{note}}
+\newcommand{\jnt}         [1]{\jnote{#1}}
+
+\newcommand{\knote}       [1]{\begin{note*}#1\end{note*}}
+\newcommand{\knt}         [1]{\knote{#1}}
+
+\newcommand{\jreminder}   [1]{\begin{reminder}#1\mylbl{reminder}\end{reminder}}
+\newcommand{\jremind}     [1]{\jreminder{#1}}
+\newcommand{\jrmnd}       [1]{\jreminder{#1}}
+\newcommand{\jrmd}        [1]{\jreminder{#1}}
+
+\newcommand{\kreminder}   [1]{\begin{reminder*}#1\end{reminder*}}
+\newcommand{\kremind}     [1]{\kreminder{#1}}
+\newcommand{\krmnd}       [1]{\kreminder{#1}}
+\newcommand{\krmd}        [1]{\kreminder{#1}}
+
+\newcommand{\jexample}    [1]{\begin{example}#1\mylbl{example}\end{example}}
+\newcommand{\jexmpl}      [1]{\jexample{#1}}
+\newcommand{\jexmp}       [1]{\jexample{#1}}
+\newcommand{\jexm}        [1]{\jexample{#1}}
+
+\newcommand{\kexample}    [1]{\begin{example*}#1\end{example*}}
+\newcommand{\kexmpl}      [1]{\kexample{#1}}
+\newcommand{\kexmp}       [1]{\kexample{#1}}
+\newcommand{\kexm}        [1]{\kexample{#1}}
+
+\newcommand{\jexamples}   [1]{\begin{examples}#1\end{examples}}
+\newcommand{\jexmpls}     [1]{\jexamples{#1}}
+\newcommand{\jexmps}      [1]{\jexamples{#1}}
+\newcommand{\jexms}       [1]{\jexamples{#1}}
+
+\newcommand{\jsolution}   [1]{\begin{solution}#1\end{solution}}
+\newcommand{\jsolve}      [1]{\jsolution{#1}}
+\newcommand{\jsol}        [1]{\jsolution{#1}}
+\newcommand{\jslv}        [1]{\jsolution{#1}}
+
+\newcommand{\jalign}      [1]{\begin{align}#1\mylbl{equation}\end{align}}
+\newcommand{\jalgn}       [1]{\jalign{#1}}
+\newcommand{\jalig}       [1]{\jalign{#1}}
+\newcommand{\jalg}        [1]{\jalign{#1}}
+
+\newcommand{\kalign}      [1]{\begin{align*}#1\end{align*}}
+\newcommand{\kalgn}       [1]{\kalign{#1}}
+\newcommand{\kalig}       [1]{\kalign{#1}}
+\newcommand{\kalg}        [1]{\kalign{#1}}
+
+\newcommand{\jaligned}    [1]{\begin{aligned}#1\end{aligned}}
+\newcommand{\jalgnd}      [1]{\jaligned{#1}}
+\newcommand{\jaligd}      [1]{\jaligned{#1}}
+\newcommand{\jalgd}       [1]{\jaligned{#1}}
+\newcommand{\jald}        [1]{\jaligned{#1}}
+
+\newcommand{\jenumerate}  [1]{\begin{enumerate}#1\end{enumerate}}
+\newcommand{\jenum}       [1]{\jenumerate{#1}}
+\newcommand{\jenm}        [1]{\jenumerate{#1}}
+\newcommand{\jen}         [1]{\jenumerate{#1}}
+
+\newcommand{\jitemize}    [1]{\begin{itemize}#1\end{itemize}}
+\newcommand{\jitems}      [1]{\jitemize{#1}}
+\newcommand{\jitem}       [1]{\jitemize{#1}}
+\newcommand{\jitm}        [1]{\jitemize{#1}}
+\newcommand{\jit}         [1]{\jitemize{#1}}
+
+\newcommand{\jequation}   [1]{\begin{equation}#1\mylbl{equation}\end{equation}}
+\newcommand{\jeq}         [1]{\jequation{#1}}
+
+\newcommand{\kequation}   [1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\keq}         [1]{\kequation{#1}}
+
+\newcommand{\jarray}      [2]{\begin{array}{#1}#2\end{array}}
+\newcommand{\jarr}        [2]{\jarray{#1}{#2}}
+
+\newcommand{\jmultline}   [1]{\begin{multline}#1\mylbl{equation}\end{multline}}
+\newcommand{\jml}         [1]{\jmultline{#1}}
+\newcommand{\jmltln}      [1]{\jmultline{#1}}
+\newcommand{\jmlt}        [1]{\jmultline{#1}}
+\newcommand{\jmline}      [1]{\jmultline{#1}}
+\newcommand{\jmln}        [1]{\jmultline{#1}}
+
+\newcommand{\kmultline}   [1]{\begin{multline*}#1\end{multline*}}
+\newcommand{\kml}         [1]{\kmultline{#1}}
+\newcommand{\kmltln}      [1]{\kmultline{#1}}
+\newcommand{\kmlt}        [1]{\kmultline{#1}}
+\newcommand{\kmline}      [1]{\kmultline{#1}}
+\newcommand{\kmln}        [1]{\kmultline{#1}}
+
+\newcommand{\jcustom}     [2][]{\begin{#1}#2\end{#1}}
+\newcommand{\jcustm}      [2][]{\jcustom[#1]{#2}}
+\newcommand{\jcust}       [2][]{\jcustom[#1]{#2}}
+\newcommand{\jcstm}       [2][]{\jcustom[#1]{#2}}
+\newcommand{\jcst}        [2][]{\jcustom[#1]{#2}}
+\newcommand{\jcs}         [2][]{\jcustom[#1]{#2}}
+\newcommand{\jct}         [2][]{\jcustom[#1]{#2}}
+
+%%% Скобки (начинаются с f)
+\newcommand{\fd} [1]{\left( #1 \right)}   % Parentheses
+\newcommand{\fb} [1]{\left[ #1 \right]}   % Brackets
+\newcommand{\fp} [1]{\left| #1 \right|}   % Pipes
+\newcommand{\fpp}[1]{\left\| #1 \right\|} % double PiPes
+\newcommand{\fdp}[1]{\left\| #1 \right\|} % Double Pipes
+\newcommand{\fP} [1]{\left\| #1 \right\|} % double Pipes
+\newcommand{\fc} [1]{\left\{ #1 \right\}} % Curly braces
+\newcommand{\fa} [1]{\langle #1 \rangle}  % Angles
+
+%%% Tikz (начинаются с t) WIP!!!!
+\newcommand{\tpic}  [3][]{
+  \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[remember picture,#1]#3\end{tikzpicture}
+    \caption{#2}
+    \mylbl{figure}
+  \end{figure}}
+\newcommand{\dpic}  [2][]{\begin{tikzpicture}[remember picture,#1]#2\end{tikzpicture}}
+\newcommand{\twrap} [5][]{
+  \begin{wrapfigure}{#3}{#4}
+    \centering
+    \begin{tikzpicture}[remember picture,#1]#5\end{tikzpicture}
+    \caption{#2}
+    \mylbl{figure}
+  \end{wrapfigure}\ }
+\newcommand{\dwrap} [4][]{
+  \begin{wrapfigure}{#2}{#3}
+    \centering
+    \begin{tikzpicture}[remember picture,#1]#4\end{tikzpicture}
+  \end{wrapfigure}\ }
+\newcommand{\tdraw}[2][]{\draw[#1] #2;}
+\newcommand{\tnode}[3][]{\node[#1] at (#2) {#3};}
+\newcommand{\tfor} [4][]{\foreach[#1] #2 in {#3}{#4}}
+\newcommand{\tgrid}[3][]{\draw[#1] (#2) grid (#3);}
+
+\newcommand{\taxes}[3][]{
+  \tdraw[-Stealth]{(-5, 0)--(5, 0) node[pos=1, anchor=north east] {$x$}}
+  \tdraw[-Stealth]{(0, -5)--(0, 5) node[pos=1, anchor=north east] {$y$}}
+  \tnode[anchor=north east]{0, 0}{$O$}
+}
+
+\makeatletter
+\newcommand{\tgetxy}[3]{
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}
+  \edef#3{\the\pgf@y}
+}
+\makeatother
+
+%%% Метки
+\newcommand{\fuck}{\tpic{\fill[color=red]circle(.1cm);}}
