@@ -26,7 +26,6 @@
       - title.tex -> /docs/sample/preamble/general_config.tex
     - src/
       - Файлы с техом лекций
-    - matan.pdf
     - matan.tex
     - Служебные файлы
   - docs/
@@ -37,6 +36,9 @@
   - .gitignore
   - LICENSE
   - README.md
+  - clean_pdf.sh
+  - prepare_pdf.sh
+  - matan.pdf
 
 Пояснения:
 
