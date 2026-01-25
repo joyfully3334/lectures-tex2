@@ -411,4 +411,11 @@
 \makeatother
 
 %%% Метки
-\newcommand{\fuck}{\tpic{\fill[color=red]circle(.1cm);}}
+\newcommand{\fuck}{ % Ставить в любой непонятной ситуации (для отладки)
+  \dpic[overlay]{
+    \fill[color=red] (-1mm, 1mm) circle (.1cm);
+    \tgetxy{(current page.west)}{\bx}{\by}
+    \fill[color=red] (\bx + 10mm - 1mm, 1mm) circle (.11cm);
+    \node[forbidden sign, line width=.3ex, draw=red] at (\bx + 10mm - 1mm, 1mm) {};
+  }
+}
