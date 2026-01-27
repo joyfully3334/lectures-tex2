@@ -4,8 +4,8 @@
 
 ## Предметы
 
-- Многомерный анализ, интегралы и ряды
-- Алгебра и геометрия
+- [Многомерный анализ, интегралы и ряды](https://github.com/joyfully3334/lectures-tex2/raw/main/matan.pdf)
+- [Алгебра и геометрия](https://github.com/joyfully3334/lectures-tex2/raw/main/algem.pdf)
 
 ## TODO
 
