@@ -48,7 +48,7 @@ qpdf --linearize $2 --replace-input
 pdfsizeopt --version > /dev/null 2>&1
 
 if [[ $? == 0 ]] then
-  pdfsizeopt $2 $tmp > /dev/null 2>&1
+  pdfsizeopt --use-pngout=no $2 $tmp > /dev/null 2>&1
   rm $2
   mv $tmp $2
 fi
