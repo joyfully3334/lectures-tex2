@@ -29,11 +29,11 @@
     - matan.tex
     - Служебные файлы
   - docs/
-    - DOCUMENTATION.md
-    - CONTRIBUTE.md
     - sample/
       - то же, что и в /matan/
+    - README.md
   - .gitignore
+  - CONTRIBUTING.md
   - LICENSE
   - README.md
   - clean_pdf.sh
@@ -117,16 +117,16 @@
 
 Начинаются с `f`.
 
-| Команда | Пояснение               | Результат  |
-|---------|-------------------------|:----------:|
-| `\fd`   | parentheses (Default)   | (a)        |
-| `\fb`   | Brackets                | [a]        |
-| `\fp`   | Pipes                   | \|a\|      |
-| `\fpp`  | double PiPes            | \|\|a\|\|  |
-| `\fdp`  | Double Pipes            | \|\|a\|\|  |
-| `\fP`   | double Pipes            | \|\|a\|\|  |
-| `\fc`   | Curly braces            | {a}        |
-| `\fa`   | Angles                  | \<a\>      |
+| Команда | Пояснение             | Результат |
+| ------- | --------------------- | :-------: |
+| `\fd`   | parentheses (Default) |    (a)    |
+| `\fb`   | Brackets              |    [a]    |
+| `\fp`   | Pipes                 |   \|a\|   |
+| `\fpp`  | double PiPes          | \|\|a\|\| |
+| `\fdp`  | Double Pipes          | \|\|a\|\| |
+| `\fP`   | double Pipes          | \|\|a\|\| |
+| `\fc`   | Curly braces          |    {a}    |
+| `\fa`   | Angles                |   \<a\>   |
 
 Все эти скобки масштабируемы.
 
@@ -165,15 +165,15 @@ WIP!!!!
 
 Команды для рисования графики.
 
-| Название                               | Пояснение                           |
-| -------------------------------------- | ----------------------------------- |
-| `\tpic [opts]{caption}{...}`           | Окружение Tikz с подписью           |
-| `\dpic [opts]{...}`                    | Окружение Tikz без подписи          |
-| `\twrap[opts]{caption}{mod}{len}{...}` | `\tpic`, обернутый текстом          |
-| `\dwrap[opts]{mod}{len}{...}`          | `\dpic`, обернутый текстом          |
-| `\tdraw[opts]{...}`                    | `\draw[opts] ...;`                  |
-| `\tfor [opts]{var}{it}{...}`           | `\foreach[opts] var in {it} ...`    |
-| ...                                    | ...                                 |
+| Название                               | Пояснение                        |
+| -------------------------------------- | -------------------------------- |
+| `\tpic [opts]{caption}{...}`           | Окружение Tikz с подписью        |
+| `\dpic [opts]{...}`                    | Окружение Tikz без подписи       |
+| `\twrap[opts]{caption}{mod}{len}{...}` | `\tpic`, обернутый текстом       |
+| `\dwrap[opts]{mod}{len}{...}`          | `\dpic`, обернутый текстом       |
+| `\tdraw[opts]{...}`                    | `\draw[opts] ...;`               |
+| `\tfor [opts]{var}{it}{...}`           | `\foreach[opts] var in {it} ...` |
+| ...                                    | ...                              |
 
 Пример рисования линий, стрелок и подписей:
 
