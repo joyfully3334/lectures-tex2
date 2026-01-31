@@ -32,13 +32,15 @@
     - sample/
       - то же, что и в /matan/
     - README.md
+  - pdf
+    - PDF files
+  - scripts
+    - clean_pdf.sh
+    - prepare_pdf.sh
   - .gitignore
   - CONTRIBUTING.md
   - LICENSE
   - README.md
-  - clean_pdf.sh
-  - prepare_pdf.sh
-  - matan.pdf
 
 Пояснения:
 
