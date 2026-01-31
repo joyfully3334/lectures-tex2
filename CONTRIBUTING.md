@@ -42,4 +42,4 @@
 - При создании PR перечислите все ошибки, исправленные в нем.
 - Чем меньше PR, тем лучше.
 
-[gh-documentation]: https://github.com/joyfully3334/lectures-tex2/docs/README.md
+[gh-documentation]: https://github.com/joyfully3334/lectures-tex2/blob/main/docs/README.md
