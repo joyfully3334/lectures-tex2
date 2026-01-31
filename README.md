@@ -10,7 +10,9 @@
 ## Опечатки
 
 Если хотите сообщить об ошибке или опечатке, то вы можете прочитать о том, как
-это сделать в `CONTRIBUTE.md` (находится в папке `docs/`).
+это сделать в [CONTRIBUTING.md].
+
+[CONTRIBUTING.md]: https://github.com/joyfully3334/lectures-tex2/CONTRIBUTING.md
 
 ## TODO
 
