@@ -1,6 +1,7 @@
 # ---> TeX
 ## Ignore pdf under development
 */*.pdf
+!pdf/*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
