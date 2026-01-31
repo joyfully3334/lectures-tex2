@@ -12,7 +12,7 @@
 Если хотите сообщить об ошибке или опечатке, то вы можете прочитать о том, как
 это сделать в [CONTRIBUTING.md].
 
-[CONTRIBUTING.md]: https://github.com/joyfully3334/lectures-tex2/CONTRIBUTING.md
+[CONTRIBUTING.md]: https://github.com/joyfully3334/lectures-tex2/blob/main/CONTRIBUTING.md
 
 ## TODO
 
