@@ -4,8 +4,11 @@
 
 ## Предметы
 
-- [Многомерный анализ, интегралы и ряды](https://github.com/joyfully3334/lectures-tex2/raw/main/matan.pdf)
-- [Алгебра и геометрия](https://github.com/joyfully3334/lectures-tex2/raw/main/algem.pdf)
+- [Многомерный анализ, интегралы и ряды][matan]
+- [Алгебра и геометрия][algem]
+
+[matan]: https://github.com/joyfully3334/lectures-tex2/raw/main/pdf/matan.pdf
+[algem]: https://github.com/joyfully3334/lectures-tex2/raw/main/pdf/algem.pdf
 
 ## Опечатки
 
