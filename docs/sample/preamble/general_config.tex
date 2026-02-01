@@ -419,3 +419,12 @@
     \node[forbidden sign, line width=.3ex, draw=red] at (\bx + 10mm - 1mm, 1mm) {};
   }
 }
+
+%%% Свои векторы
+\newcommand{\vc}[1]{
+    \tikz[-stealth]{
+      \def\vup{0.3ex}
+      \node[inner sep=0pt] (char) {$#1$};
+      \draw ($(char.north west) + (0,\vup)$) -- ($(char.north east)+(0,\vup)$);
+    }
+}
