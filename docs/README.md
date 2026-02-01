@@ -151,16 +151,6 @@
 \end{equation}
 ```
 
-Результат:
-
-$$
-\begin{equation}
-  \left(\begin{array}{c c}1 & 2 \\ 3 & 4\end{array}\right) +
-  \left(\begin{array}{c c}5 & 6 \\ 7 & 8\end{array}\right) =
-  \left(\begin{array}{c c}6 & 8 \\ 10 & 12\end{array}\right)
-\end{equation}
-$$
-
 ### Команды Tikz
 
 WIP!!!!
