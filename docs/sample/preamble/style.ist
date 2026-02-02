@@ -1,7 +1,7 @@
 item_0  "\\vspace{2ex}\n\\item \\ \\hfill{\\large \\textbf{"
 
-item_x1 "}}\\hfill \\ \n\\item \\ \\hfill \\vspace{1ex} \\dpic[overlay, gray]{\\tdraw{(-3, 0)--(3, 0)} \\tnode[fill=white]{0, 0}{\\small "
-item_1               "\n\\item \\ \\hfill \\vspace{1ex} \\dpic[overlay, gray]{\\tdraw{(-3, 0)--(3, 0)} \\tnode[fill=white]{0, 0}{\\small "
+item_x1 "}}\\hfill \\ \n\\item \\ \\hfill \\vspace{1ex} \\tk[overlay, gray]{\\tdraw{(-3, 0)--(3, 0)} \\tnode[fill=white]{\\small "
+item_1               "\n\\item \\ \\hfill \\vspace{1ex} \\tk[overlay, gray]{\\tdraw{(-3, 0)--(3, 0)} \\tnode[fill=white]{\\small "
 
 item_x2 "}}\\hfill \\ \n\\item "
 item_2               "\n\\item "
