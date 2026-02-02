@@ -420,8 +420,8 @@
 %%% Свои векторы
 \newcommand{\vc}[1]{
     \tikz[-stealth]{
-      \def\vup{0.3ex}
+      \def\vup{0.45ex}
       \node[inner sep=0pt] (char) {$#1$};
-      \draw ($(char.north west) + (0,\vup)$) -- ($(char.north east)+(0,\vup)$);
+      \draw ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
     }
 }
