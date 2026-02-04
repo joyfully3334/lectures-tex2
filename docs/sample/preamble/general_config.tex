@@ -444,10 +444,14 @@
 
 %%% Метки
 \newcommand{\fuck}{ % Ставить в любой непонятной ситуации (для отладки)
-  \dpic[overlay]{
+  \tk{
     \fill[color=red] (-1mm, 1mm) circle (.1cm);
-    \tgetxy{(current page.west)}{\bx}{\by}
-    \fill[color=red] (\bx + 10mm - 1mm, 1mm) circle (.11cm);
-    \node[forbidden sign, line width=.3ex, draw=red] at (\bx + 10mm - 1mm, 1mm) {};
+  }
+  \tk[overlay]{
+    \coordinate (lm) at ($(current page.west|-0,0)+(10mm - 1mm, 1mm)$);
+    \tf{\i}{0,0.1,...,1}{
+      \fill[color=red] ($(lm)+(0, \i / 2)$) circle (-4 * 0.02 * \i * \i + 4 * 0.02 * \i + 0.05);
+    }
+    \fill[color=red] ($(lm)+(0, -2mm)$) circle (.06cm);
   }
 }
