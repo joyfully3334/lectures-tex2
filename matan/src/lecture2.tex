@@ -1,0 +1,225 @@
+\chapter{Дифференциальное исчисление функций многих переменных}
+
+\section{Предел и непрерывность}
+
+\lectureinfo{2}{06.02.2026}
+
+$f: D \to \R = Y$
+
+$D \subset \R^n = X$
+
+Приведем определение предела:
+
+\jdf[Предел]{
+  Пусть $\vc x_0$ -- предельная точка $D$. Тогда предел определяется:
+
+  по Коши:
+
+  \[ \mlim[] f(\vc x) = l \iff \forall \epsilon > 0 \then \exists \delta > 0 :
+  \forall \vc x \in D, 0 < \rho^x(\vc x, \vc x_0) < \delta \hk \rho_y(f(\vc x),
+l) < \epsilon \]
+
+  по Гейне:
+
+  \[ \mlim[] f(\vc x) = l \iff \forall \fc{\vc x_m} \subset D: \mlim[m \to
+  \infty] \vc x_m = \vc x_0, \vc x_m \neq \vc x_0 \hk \mlim[m \to \infty] f(\vc
+  x_m) = l \]
+
+  Если $\vc x_0$ -- внутренняя точка D, то $\mlim[\vc x \to \vc x_0]$ называется
+  пределом по совокупности переменных.
+
+  Если $D = D_{\vc d}$ -- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
+  его пересечение с проколотой окрестностью точки $\vc x_0$), то предел
+  $\mlim[\vc x \to \vc x_0] f(\vc x)$ называется пределом по направлению $\vc d$
+}
+
+\jlm{
+  \[ \mlim[\vc x \to \vc x_0] f(\vc x) = \mlim[t \to 0+] f(\vc x_0 + t\vc d) \]
+
+  \[ \vc x \in D_{\vc d} \iff \vc x = \vc x_0 + t \vc d, t \ge 0 (0 < t < r) \]
+}
+
+\jth{
+  Если существует предел по совокупности переменных
+  $\mlim[\vc x \to \vc x_0] f(\vc x)$, то существует предел по любому
+  направлению $\mlim[\vc x \to \vc x_0]$. Обратное, вообще говоря не верно.
+}
+
+\jprf{
+  Если $\vc x \in D_{\vc d}, 0 < \fp{\vc x - \vc x_0} < \delta$, то
+  $\vc x \in D, 0 < \fp{\vc x - \vc x_0} < \delta$.
+}
+
+\jexm{
+  \[ f(x, y) = \left\{\jarr{c c}{\frac{xy^2}{x^2 + y^2}}, & (x, y) \neq (0, 0)
+  \\ 0, & (x, y) = (0, 0)\right. \]
+
+  \[ \mlim[(x, y) \to (0, 0)] f(x, y) = \mlim[t \to 0+] f(0 + t\alpha, 0 +
+  t\beta) = \mlim[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
+
+  По определению Гейне возьмем последовательность $\fd{\frac{1}{m^2}, \frac{1}{m}}
+  to (0, 0)$, тогда
+
+  \[ f\fd{\frac{1}{m^2}, \frac{1}{m}} = \frac{1/m^4}{2/m^4} = \frac{1}{2} \]
+
+  Тогда общего предела у функции нет, хотя по каждому направлению -- есть.
+}
+
+\jdf[Повторный предел]{
+  \[ \mlim[x \to x_0] \fd{\mlim[y \to y_0] f(x, y)} \]
+}
+
+\knt{
+  Наличие предела по совокупности переменных и повторных пределов никак не
+  связано.
+
+  \jexm{
+    \[ g(x, y) = \left\{\jalg{&\sqrt{x^2 + y^2} \sin \frac{1}{x} \sin \frac{1}{y}\\
+    &0}\right. \]
+
+    \[ \mlim[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
+    \fp{(x, y)} \]
+
+    \[ \mlim[y \to 0]{g(x, y)} \text{ существует и равен 0} \iff x = 0
+    \text{ или } x = \frac{1}{k}, k \in K \]
+  }
+}
+
+Если $\vc x_0$ -- предельная точка больати определения $D(f)$, то $f$ непрерывна
+в $\vc x_0$ тогда и только тогда, когда $\mlim[x \to \vc x_0] f(\vc x) = f(\vc
+x_0)$
+
+Если $\vc x_0$ -- изолированная точка $D(f)$, то $f$ непрерывна в $\vc x_0$.
+Непрерывность по совокупности переменных и непрерывность по направлению
+определяются естественным образом.
+
+\th[Непрерывность сложной функции многих переменных]{
+  Если $f: D \to \R$ непрерывна в точке $\vc y_0 = \fd{y_0^{(1)}, \ldots, y_0^{(n)}} \in D$,
+  функции $g_j(\vc x), j = 1, \ldots, n$ непрерывны в точке $\vc x_0 \in G
+  \subset \R^m, g_j(\vc x_0) = y_0^{(j)}, j = 1, \ldots, m$, то сложная функция
+  $\h(\vc x) = f\fd{g_1(\vc x), \ldots, g_n(\vc x)}$ непрерывна в $\vc x_0$.
+}
+
+\jpf{
+  Возьмем последовательность Гейне:
+
+  \[ \fc{\vc x_k} \subset D(h): \mlim[k \to \infty] \vc x_k = \vc x_0 \hk
+  \mlim[k \to \infty] g_j(\vc x_k) = g_k(\vc x_0) = y_0^{(j)} \implies
+  \fd{g_1(\vc x_k), \ldots, g_n(\vc x_k)} \to[k \to \infty] \vc y_0 \implies
+  f \fuck \]
+}
+
+\jth[Кантор]{
+  Если $f$ непрерывна на компактном множестве $K \subset \R^n$,
+  то $f$ равномерно непрерывна на $K$.
+}
+
+\jprf{
+  (От противного). Определение равномерной непрерывности на $K$:
+
+  \[ \forall \epsilon > 0 \then \exists \delta > 0: \forall \vc x_1, \vc x_2 \in
+  K, \fp{\vc x_1 - \vc x_2} < \delta \hk \fp{f(\vc x_1) - f(\vc x_2)} < \epsilon \]
+
+  Тогда отрицанием будет
+
+  \[ \exists \epsilon > 0 \then \forall \delta > 0 \then \exists \vc x_1, \vc
+  x_2 \in K, \fp{\vc x_1, \vc x_2} < \delta: \fp{f(\vc x_1) - f(\vc x_2)} \ge
+  \epsilon \]
+
+  Построим последовательность по $\delta := 1, \frac{1}{2}, \ldots$
+
+  \fuck
+  \[ \fc{\vc x_{1, k}}, \fc{\vc x_{2, k}} \subset K \]
+
+  По критерий компактности $\exists \fc{\vc x_{1, k}_j}, \mlim[j \to \infty] \vc
+  x_{1, k}_j = \vc x_0 \in K$
+
+  Тогда
+
+  \[ \fp{\vc x_{2, k}_j - \vc x_0} \le \fp{\vc x_{2, k}_j - \vc x_{1, k}_j} +
+  \fp{\vc x_{1, k}_j - \vc x_0} \implies
+  \mlim[j \to \infty] \vc x_{2, k}_j = \vc x_0\]
+
+  Так как $f$ непрерывна в $\vc x_0$, то
+
+  \[ \mlim[j \to \infty] f(\vc x_{1, k}_j) = \mlim[j \to \infty] f(\vc x_{2,
+  k}_j) = f(\vc x_0) \]
+
+  \[ \fp{f(\vc x_{1, k}_j) - f(\vc x_{2, k}_j)} \ge \epsilon \]
+
+  Но вместе они не могут выполняться. Противоречие.
+}
+
+\jdf[Линейная связность]{
+  Множество $A$ в $\R^n$ называется линейно связным, если $\forall \vc x \neq
+  \vc y \in A \then\exists$ кривая $\gamma_i \subset A$ такая, что
+  $\gamma(a) = \vc x, \gamma(b) = \vc y$.
+}
+
+\jdf[Связность]{
+  Метрическое пространство $X$ называется связным, если его нельзя представить
+  объединением двух непересекающихся непустых открытых множеств.
+}
+
+\jprp{
+  Множество $A$ в $\R^n$ является связным, если его нельзя представить
+  объединиением двух непересекающихся непустых открытых в нем множеств.
+
+  Множество $G \subset A$ открыто в $A \iff \exists \mathfrak g \subset \R^n$
+  открытое, такое, что $G = \mathfrak g \cap A$.
+}
+
+\jprf{
+  \[ \forall x \in G \then\exists U_\epsilon^A(\vc x) \subset G \]
+
+  Возьмем
+
+  \[ \mathfrak g := \bigcup_{\vc x \in G} U_\epsilon(\vc x) \]
+}
+
+\knt{
+  \[ U_\epsilon^A(\vc x) := \fc{\vc y \in A: \fp{\vc x - \vc y} < \epsilon} \]
+}
+
+\jth{
+  Если $A \in \R^n$ линейно связно, то оно линейно связно.
+}
+
+\jprf{
+  (От противного). $A$ -- не связно, следовательно $\exists G_1, G_2$ ---
+  открытых множества в $A$, таких, что
+
+  \[ G_1 \neq \varempty, G_2 \neq \varempty, G_1 \cap G_2 = A \]
+
+  Пусть $\vc x \in G_1, \vc y \in G_2$. $A$ -- линейно связно, следовательно
+
+  \[ \exists \gamma \subset A, \gamma(a) = \vc x, \gamma(b) = \vc y \]
+
+  $\gamma: [a, b] \to A$
+
+  Обозначим $T := \sup\fc{t: \gamma(t) \in G_1}$, $T \in [a, b]$. Предположим,
+  что $\gamma(T) \in G_1$, тогда $\exists G_1 = \mathfrak g_1 \cap A$
+
+  \[ \gamma(T) \in \mathfrak g_1 \implies U_\epsilon(\gamma(T)) \subset
+  \mathfrak g_1 \]
+
+  \[ T < b \implies \exists \delta > 0: \gamma([T, T + \delta)) \subset
+  U_\epsilon(\gamma(T)) \]
+
+  Получаем противоречие.
+}
+
+\jnt{
+  Обратное, вообще говоря, не верно.
+
+  \jexm{
+    \tk{
+      \tdraw{(0, 0) circle (1)}
+      \tdraw[-Stealth]{(0, 0)--(3, 0) node[below] {x}}
+    }
+
+    \[ x = r \cos \phi \]
+    \[ y = r \sin \phi \]
+    \[ r = 1 + \frac{1}{\phi} \]
+  }
+}
