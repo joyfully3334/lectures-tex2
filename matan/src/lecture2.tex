@@ -28,7 +28,7 @@ l) < \epsilon \]
   Если $\vc x_0$ -- внутренняя точка D, то $\mlim[\vc x \to \vc x_0]$ называется
   пределом по совокупности переменных.
 
-  Если $D = D_{\vc d}$ -- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
+  Если $D = D_{\vc d}D_{\vec d}$ -- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
   его пересечение с проколотой окрестностью точки $\vc x_0$), то предел
   $\mlim[\vc x \to \vc x_0] f(\vc x)$ называется пределом по направлению $\vc d$
 }
@@ -51,8 +51,8 @@ l) < \epsilon \]
 }
 
 \jexm{
-  \[ f(x, y) = \left\{\jarr{c c}{\frac{xy^2}{x^2 + y^2}}, & (x, y) \neq (0, 0)
-  \\ 0, & (x, y) = (0, 0)\right. \]
+  \[ f(x, y) = \left\{\jarr{c c}{\frac{xy^2}{x^2 + y^2}, & (x, y) \neq (0, 0)
+  \\ 0, & (x, y) = (0, 0)}\right. \]
 
   \[ \mlim[(x, y) \to (0, 0)] f(x, y) = \mlim[t \to 0+] f(0 + t\alpha, 0 +
   t\beta) = \mlim[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
@@ -74,8 +74,8 @@ l) < \epsilon \]
   связано.
 
   \jexm{
-    \[ g(x, y) = \left\{\jalg{&\sqrt{x^2 + y^2} \sin \frac{1}{x} \sin \frac{1}{y}\\
-    &0}\right. \]
+    \[ g(x, y) = \left\{\jarr{c}{\sqrt{x^2 + y^2} \sin \frac{1}{x} \sin \frac{1}{y}\\
+    0}\right. \]
 
     \[ \mlim[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
     \fp{(x, y)} \]
@@ -97,10 +97,10 @@ x_0)$
   Если $f: D \to \R$ непрерывна в точке $\vc y_0 = \fd{y_0^{(1)}, \ldots, y_0^{(n)}} \in D$,
   функции $g_j(\vc x), j = 1, \ldots, n$ непрерывны в точке $\vc x_0 \in G
   \subset \R^m, g_j(\vc x_0) = y_0^{(j)}, j = 1, \ldots, m$, то сложная функция
-  $\h(\vc x) = f\fd{g_1(\vc x), \ldots, g_n(\vc x)}$ непрерывна в $\vc x_0$.
+  $h(\vc x) = f\fd{g_1(\vc x), \ldots, g_n(\vc x)}$ непрерывна в $\vc x_0$.
 }
 
-\jpf{
+\jprf{
   Возьмем последовательность Гейне:
 
   \[ \fc{\vc x_k} \subset D(h): \mlim[k \to \infty] \vc x_k = \vc x_0 \hk
@@ -131,21 +131,21 @@ x_0)$
   \fuck
   \[ \fc{\vc x_{1, k}}, \fc{\vc x_{2, k}} \subset K \]
 
-  По критерий компактности $\exists \fc{\vc x_{1, k}_j}, \mlim[j \to \infty] \vc
-  x_{1, k}_j = \vc x_0 \in K$
+  По критерий компактности $\exists \fc{{\vc x_{1, k}}_j}, \mlim[j \to \infty]
+  {\vc x_{1, k}}_j = \vc x_0 \in K$
 
   Тогда
 
-  \[ \fp{\vc x_{2, k}_j - \vc x_0} \le \fp{\vc x_{2, k}_j - \vc x_{1, k}_j} +
-  \fp{\vc x_{1, k}_j - \vc x_0} \implies
-  \mlim[j \to \infty] \vc x_{2, k}_j = \vc x_0\]
+\[ \fp{{\vc x_{2, k}}_j - \vc x_0} \le \fp{{\vc x_{2, k}}_j - {\vc x_{1, k}}_j} +
+  \fp{{\vc x_{1, k}}_j - \vc x_0} \implies
+  \mlim[j \to \infty] {\vc x_{2, k}}_j = \vc x_0\]
 
   Так как $f$ непрерывна в $\vc x_0$, то
 
-  \[ \mlim[j \to \infty] f(\vc x_{1, k}_j) = \mlim[j \to \infty] f(\vc x_{2,
-  k}_j) = f(\vc x_0) \]
+  \[ \mlim[j \to \infty] f({\vc x_{1, k}}_j) = \mlim[j \to \infty] f({\vc x_{2,
+  k}}_j) = f(\vc x_0) \]
 
-  \[ \fp{f(\vc x_{1, k}_j) - f(\vc x_{2, k}_j)} \ge \epsilon \]
+  \[ \fp{f(\vc x_{1, k}}_j) - f({\vc x_{2, k}}_j) \ge \epsilon \]
 
   Но вместе они не могут выполняться. Противоречие.
 }
@@ -189,7 +189,7 @@ x_0)$
   (От противного). $A$ -- не связно, следовательно $\exists G_1, G_2$ ---
   открытых множества в $A$, таких, что
 
-  \[ G_1 \neq \varempty, G_2 \neq \varempty, G_1 \cap G_2 = A \]
+  \[ G_1 \neq \varnothing, G_2 \neq \varnothing, G_1 \cap G_2 = A \]
 
   Пусть $\vc x \in G_1, \vc y \in G_2$. $A$ -- линейно связно, следовательно
 
@@ -213,13 +213,14 @@ x_0)$
   Обратное, вообще говоря, не верно.
 
   \jexm{
-    \tk{
-      \tdraw{(0, 0) circle (1)}
-      \tdraw[-Stealth]{(0, 0)--(3, 0) node[below] {x}}
-    }
-
+    Контрпример иллюстрирован на \hyperref[figure6.1.1]{рис. 6.1}:
     \[ x = r \cos \phi \]
     \[ y = r \sin \phi \]
     \[ r = 1 + \frac{1}{\phi} \]
   }
+}
+
+\tpic{Контрпример}{
+  \tdraw{(0, 0) circle (1)}
+  \tdraw[-Stealth]{(0, 0)--(3, 0) node[below] {x}}
 }
