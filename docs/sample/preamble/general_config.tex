@@ -433,13 +433,23 @@
 }
 \newcommand{\tm}     [2][]{\tmatrix[#1]{#2}}
 
-%%% Свои векторы
+%%% Свои векторы TODO: Сделать автоматический размер
 \newcommand{\vc}[1]{
-    \tikz[-stealth]{
-      \def\vup{0.45ex}
-      \node[inner sep=0pt] (char) {$#1$};
-      \draw ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
-    }
+  \tikz{
+    \def\vup{0.4ex}
+    \node[inner sep=0pt] (char) {$#1$};
+    \draw[-{Stealth[length=1mm]}]
+    ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
+  }
+}
+
+\newcommand{\vcs}[1]{
+  \tikz{
+    \def\vup{0.2ex}
+    \node[inner sep=0pt] (char) {\scriptsize $#1$};
+    \draw[-{Stealth[length=.8mm]}]
+    ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
+  }
 }
 
 %%% Replace
