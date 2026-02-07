@@ -435,20 +435,29 @@
 
 %%% Свои векторы TODO: Сделать автоматический размер
 \newcommand{\vc}[1]{
-  \ifnum \mathstyle=5
+  \ifnum \mathstyle>6
     \tk{
-      \def\vup{0.2ex}
-      \node[inner sep=0pt] (char) {$\scriptstyle #1$};
-      \draw[-{Stealth[length=.8mm]}]
+      \def\vup{0.16ex}
+      \node[inner sep=0pt] (char) {$\scriptscriptstyle #1$};
+      \draw[-{Stealth[length=.6mm]}, very thin]
       ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
     }
   \else
-    \tk{
-      \def\vup{0.35ex}
-      \node[inner sep=0pt] (char) {$#1$};
-      \draw[-{Stealth[length=1mm]}]
-      ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
-    }
+    \ifnum \mathstyle>4
+      \tk{
+        \def\vup{0.35ex}
+        \node[inner sep=0pt] (char) {$#1$};
+        \draw[-{Stealth[length=1mm]}]
+        ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
+      }
+    \else
+      \tk{
+        \def\vup{0.2ex}
+        \node[inner sep=0pt] (char) {$\scriptstyle #1$};
+        \draw[-{Stealth[length=.8mm]}]
+        ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
+      }
+    \fi
   \fi
 }
 
