@@ -213,14 +213,27 @@ x_0)$
   Обратное, вообще говоря, не верно.
 
   \jexm{
-    Контрпример иллюстрирован на \hyperref[figure6.1.1]{рис. 6.1}:
-    \[ x = r \cos \phi \]
-    \[ y = r \sin \phi \]
-    \[ r = 1 + \frac{1}{\phi} \]
+    Контрпример иллюстрирован на \hyperref[figure6.1.1]{рис. 6.1}
   }
 }
 
 \tpic{Контрпример}{
   \tdraw{(0, 0) circle (1)}
-  \tdraw[-Stealth]{(0, 0)--(3, 0) node[below] {x}}
+  \tdraw[-Stealth]{(-2, 0)--(2.5, 0) node[below left] {x}}
+  \tdraw[-Stealth]{(0, -1.5)--(0, 2) node[below left] {y}}
+  \tp{(0, 0) node[below left] {$O$}}
+  \tdraw{(2 * 3.14 * 31:1 + 1 / 31 / 2 / 3.14 * 100)
+  foreach \i in {31, 31.5, ..., 300}{
+    --(2 * 3.14 * \i:1 + 1 / \i / 2 / 3.14 * 100)
+  }}
+  \tp{(4.5, 0) node {
+    $
+    \left\{\jald{
+      &x = r \cos \phi \\
+      &y = r \sin \phi \\
+      &r = 1 + \frac{1}{\phi} \\
+    }
+    \right.
+    $
+  }}
 }
