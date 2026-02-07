@@ -15,34 +15,34 @@ $D \subset \R^n = X$
 
   по Коши:
 
-  \[ \mlim[] f(\vc x) = l \iff \forall \epsilon > 0 \then \exists \delta > 0 :
+  \[ \lm[] f(\vc x) = l \iff \forall \epsilon > 0 \then \exists \delta > 0 :
   \forall \vc x \in D, 0 < \rho^x(\vc x, \vc x_0) < \delta \hk \rho_y(f(\vc x),
 l) < \epsilon \]
 
   по Гейне:
 
-  \[ \mlim[] f(\vc x) = l \iff \forall \fc{\vc x_m} \subset D: \mlim[m \to
-  \infty] \vc x_m = \vc x_0, \vc x_m \neq \vc x_0 \hk \mlim[m \to \infty] f(\vc
+  \[ \lm[] f(\vc x) = l \iff \forall \fc{\vc x_m} \subset D: \lm[m \to
+  \infty] \vc x_m = \vc x_0, \vc x_m \neq \vc x_0 \hk \lm[m \to \infty] f(\vc
   x_m) = l \]
 
-  Если $\vc x_0$ -- внутренняя точка D, то $\mlim[\vc x \to \vc x_0]$ называется
+  Если $\vc x_0$ -- внутренняя точка D, то $\lm[\vc x \to \vc x_0]$ называется
   пределом по совокупности переменных.
 
   Если $D = D_{\vc d}$ -- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
   его пересечение с проколотой окрестностью точки $\vc x_0$), то предел
-  $\mlim[\vc x \to \vc x_0] f(\vc x)$ называется пределом по направлению $\vc d$
+  $\lm[\vc x \to \vc x_0] f(\vc x)$ называется пределом по направлению $\vc d$
 }
 
 \jlm{
-  \[ \mlim[\vc x \to \vc x_0] f(\vc x) = \mlim[t \to 0+] f(\vc x_0 + t\vc d) \]
+  \[ \lm[\vc x \to \vc x_0] f(\vc x) = \lm[t \to 0+] f(\vc x_0 + t\vc d) \]
 
   \[ \vc x \in D_{\vc d} \iff \vc x = \vc x_0 + t \vc d, t \ge 0 (0 < t < r) \]
 }
 
 \jth{
   Если существует предел по совокупности переменных
-  $\mlim[\vc x \to \vc x_0] f(\vc x)$, то существует предел по любому
-  направлению $\mlim[\vc x \to \vc x_0]$. Обратное, вообще говоря не верно.
+  $\lm[\vc x \to \vc x_0] f(\vc x)$, то существует предел по любому
+  направлению $\lm[\vc x \to \vc x_0]$. Обратное, вообще говоря не верно.
 }
 
 \jprf{
@@ -54,8 +54,8 @@ l) < \epsilon \]
   \[ f(x, y) = \left\{\jarr{c c}{\frac{xy^2}{x^2 + y^2}, & (x, y) \neq (0, 0)
   \\ 0, & (x, y) = (0, 0)}\right. \]
 
-  \[ \mlim[(x, y) \to (0, 0)] f(x, y) = \mlim[t \to 0+] f(0 + t\alpha, 0 +
-  t\beta) = \mlim[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
+  \[ \lm[(x, y) \to (0, 0)] f(x, y) = \lm[t \to 0+] f(0 + t\alpha, 0 +
+  t\beta) = \lm[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
 
   По определению Гейне возьмем последовательность $\fd{\frac{1}{m^2}, \frac{1}{m}}
   to (0, 0)$, тогда
@@ -66,7 +66,7 @@ l) < \epsilon \]
 }
 
 \jdf[Повторный предел]{
-  \[ \mlim[x \to x_0] \fd{\mlim[y \to y_0] f(x, y)} \]
+  \[ \lm[x \to x_0] \fd{\lm[y \to y_0] f(x, y)} \]
 }
 
 \knt{
@@ -77,23 +77,23 @@ l) < \epsilon \]
     \[ g(x, y) = \left\{\jarr{c}{\sqrt{x^2 + y^2} \sin \frac{1}{x} \sin \frac{1}{y}\\
     0}\right. \]
 
-    \[ \mlim[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
+    \[ \lm[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
     \fp{(x, y)} \]
 
-    \[ \mlim[y \to 0]{g(x, y)} \text{ существует и равен 0} \iff x = 0
+    \[ \lm[y \to 0]{g(x, y)} \text{ существует и равен 0} \iff x = 0
     \text{ или } x = \frac{1}{k}, k \in K \]
   }
 }
 
 Если $\vc x_0$ -- предельная точка больати определения $D(f)$, то $f$ непрерывна
-в $\vc x_0$ тогда и только тогда, когда $\mlim[x \to \vc x_0] f(\vc x) = f(\vc
+в $\vc x_0$ тогда и только тогда, когда $\lm[x \to \vc x_0] f(\vc x) = f(\vc
 x_0)$
 
 Если $\vc x_0$ -- изолированная точка $D(f)$, то $f$ непрерывна в $\vc x_0$.
 Непрерывность по совокупности переменных и непрерывность по направлению
 определяются естественным образом.
 
-\th[Непрерывность сложной функции многих переменных]{
+\jth[Непрерывность сложной функции многих переменных]{
   Если $f: D \to \R$ непрерывна в точке $\vc y_0 = \fd{y_0^{(1)}, \ldots, y_0^{(n)}} \in D$,
   функции $g_j(\vc x), j = 1, \ldots, n$ непрерывны в точке $\vc x_0 \in G
   \subset \R^m, g_j(\vc x_0) = y_0^{(j)}, j = 1, \ldots, m$, то сложная функция
@@ -103,8 +103,8 @@ x_0)$
 \jprf{
   Возьмем последовательность Гейне:
 
-  \[ \fc{\vc x_k} \subset D(h): \mlim[k \to \infty] \vc x_k = \vc x_0 \hk
-  \mlim[k \to \infty] g_j(\vc x_k) = g_k(\vc x_0) = y_0^{(j)} \implies
+  \[ \fc{\vc x_k} \subset D(h): \lm[k \to \infty] \vc x_k = \vc x_0 \hk
+  \lm[k \to \infty] g_j(\vc x_k) = g_k(\vc x_0) = y_0^{(j)} \implies
   \fd{g_1(\vc x_k), \ldots, g_n(\vc x_k)} \to[k \to \infty] \vc y_0 \implies
   f \fuck \]
 }
@@ -131,18 +131,18 @@ x_0)$
   \fuck
   \[ \fc{\vc x_{1, k}}, \fc{\vc x_{2, k}} \subset K \]
 
-  По критерий компактности $\exists \fc{{\vc x_{1, k}}_j}, \mlim[j \to \infty]
+  По критерий компактности $\exists \fc{{\vc x_{1, k}}_j}, \lm[j \to \infty]
   {\vc x_{1, k}}_j = \vc x_0 \in K$
 
   Тогда
 
 \[ \fp{{\vc x_{2, k}}_j - \vc x_0} \le \fp{{\vc x_{2, k}}_j - {\vc x_{1, k}}_j} +
   \fp{{\vc x_{1, k}}_j - \vc x_0} \implies
-  \mlim[j \to \infty] {\vc x_{2, k}}_j = \vc x_0\]
+  \lm[j \to \infty] {\vc x_{2, k}}_j = \vc x_0\]
 
   Так как $f$ непрерывна в $\vc x_0$, то
 
-  \[ \mlim[j \to \infty] f({\vc x_{1, k}}_j) = \mlim[j \to \infty] f({\vc x_{2,
+  \[ \lm[j \to \infty] f({\vc x_{1, k}}_j) = \lm[j \to \infty] f({\vc x_{2,
   k}}_j) = f(\vc x_0) \]
 
   \[ \fp{f(\vc x_{1, k}}_j) - f({\vc x_{2, k}}_j) \ge \epsilon \]
