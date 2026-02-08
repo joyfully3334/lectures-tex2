@@ -4,22 +4,20 @@
 \newcommand{\LecturerInitials}{Иван Сосискин Мухтарович}
 \newcommand{\CourseDate}{осень 1999}
 
-\newcommand{\ifzr}[3]{\ifnum #1=0 #2 \else #3 \fi}
-
 %%% Колонтитулы
-\usepackage{titleps}
-\newpagestyle{main}{
-	\setheadrule{0.4pt}
-  \sethead{\hyperlink{intro}{$\uparrow$}}{\ifzr{\value{section}}{}{\thesection}\sectiontitle}{\thepage}
-}
-\pagestyle{main}
+% \newpagestyle{main}{
+%   \setheadrule{0.4pt}
+%   \sethead{\hyperlink{intro}{$\uparrow$}}{\ifzr{\value{section}}{}{\thesection}\sectiontitle}{\thepage}
+% }
+% \pagestyle{main}
 
-%%% Счетчики
+%%% Заголовки
 % \setcounter{chapter}{-1}  % Нумерация глав с нуля
 \setcounter{secnumdepth}{1} % Отключение нумерации подразделов
 
 \renewcommand{\thesection}{\S\arabic{section}}
 
+%%% Счетчики
 \counterwithout{theorem}    {chapter}
 \counterwithin*{theorem}    {section}
 \counterwithout{lemma}      {chapter}
@@ -32,16 +30,5 @@
 \counterwithin{equation}{section}
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}
 
-%%% Пометки о начале лекций
-\newcommand\lectureinfo[2]{
-  \tk[overlay]{
-    \tp{(current page.east |- 0,0)+(-20mm, 0)
-    node[anchor=east, color=black!50] {\footnotesize{Лекция #1 (#2)}}}
-  }
-}
-
-%%% Свои значки в \itemize
-\setlist[itemize,1]{label=$*$}
-\setlist[itemize,2]{label=$-$}
-\setlist[itemize,3]{label=$\centerdot$}
-\setlist[itemize,4]{label=$\cdot$}
+%%% Сообщения о начале лекций
+% \renewcommand\lectureinfo[2]{} % Убрать пометки

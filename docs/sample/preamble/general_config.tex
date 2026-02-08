@@ -524,3 +524,31 @@
 }
 \newcommand{\inditt} [1]{\small #1}
 \newcommand{\inditx} [1]{#1}
+
+%%% Свои значки в \itemize
+\setlist[itemize,1]{label=$*$}
+\setlist[itemize,2]{label=$-$}
+\setlist[itemize,3]{label=$\centerdot$}
+\setlist[itemize,4]{label=$\cdot$}
+
+\setlist[enumerate,1]{label=$\textnormal{\arabic{enumi}.}$}
+\setlist[enumerate,2]{label=$\textnormal{\theenumi\arabic{enumii}.}$}
+\setlist[enumerate,3]{label=$\textnormal{\theenumii\arabic{enumiii}.}$}
+
+%%% Пометки о начале лекций
+\newcommand\lectureinfo[2]{
+  \tk[overlay]{
+    \tp{(current page.east |- 0,0)+(-20mm, 0)
+    node[anchor=east, color=black!50] {\footnotesize{Лекция #1 (#2)}}}
+  }
+}
+
+%%% Колонтитулы
+\newcommand{\ifzr}[3]{\ifnum #1=0 #2 \else #3 \fi}
+
+\usepackage{titleps}
+\newpagestyle{main}{
+	\setheadrule{0.4pt}
+  \sethead{\hyperlink{intro}{$\uparrow$}}{\ifzr{\value{section}}{}{\thesection}\sectiontitle}{\thepage}
+}
+\pagestyle{main}
