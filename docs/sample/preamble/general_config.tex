@@ -29,7 +29,8 @@
 \usepackage{tikz-cd}     % Коммутативные диаграммы
 \usepackage{tkz-euclide} % Геометрия
 \usepackage{stackengine} % Многострочные тексты в картинках
-\usetikzlibrary{angles, babel, quotes, matrix, calc, shapes, shapes.symbols}
+\usetikzlibrary{angles, babel, quotes, matrix, calc, shapes, shapes.symbols,
+positioning, fit}
 
 %%% Перенос знаков в формулах (по Львовскому)
 \newcommand{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
@@ -432,11 +433,10 @@
 \newcommand{\tfor}   [4][]{\foreach[#1] #2 in {#3}{#4}}
 \newcommand{\tf}     [4][]{\tfor[#1]{#2}{#3}{#4}}
 \newcommand{\tmatrix}[2][]{
-  \matrix[matrix of nodes, ampersand replacement=\&, #1]{\replace{#2}{&}{\&}};
+  \matrix[ampersand replacement=\&, #1]{\replace{#2}{&}{\&}};
 }
 \newcommand{\tm}     [2][]{\tmatrix[#1]{#2}}
 
-%%% Свои векторы TODO: Сделать автоматический размер
 \newcommand{\vc}[1]{
   \ifnum \mathstyle>6
     \tk{
