@@ -189,12 +189,12 @@
 \newcommand{\theoremindex}[6]{
   \ifstrempty{#1} {
     \index{#4#2!
-          Глава \thechapter\ \thesection!
-          \alph{#6}@#3 #5}
+      \arabic{chapter}?\arabic{section}!
+      \alph{#6}@#3 #5}
   }{
     \index{#4#2!
-          Глава \thechapter\ \thesection!
-          \alph{#6}@#3 #5. #1}
+      \arabic{chapter}?\arabic{section}!
+      \alph{#6}@#3 #5. #1}
   }
 }
 
@@ -492,3 +492,33 @@
     \fill[color=red] ($(lm)+(0, -2mm)$) circle (.06cm);
   }
 }
+
+\usepackage{xstring}
+
+%%% Комманды для предметного указателя
+\newcounter{tmpchap}
+\newcounter{tmpsec}
+
+\newcommand{\inditn} [1]{\ \hfill
+  \setcounter{tmpchap}{0}
+  \setcounter{tmpsec}{0}
+  {\large \textbf{#1}}
+}
+\newcommand{\indito} [1]{\ \hfill \vspace{1ex}
+  \IfSubStrBefore{#1}{\thetmpchap}{?}{
+    \tk[overlay, gray]{\tdraw{(-2.7, 0)--(2.7, 0)}
+      \tnode[fill=white]{
+        {\footnotesize \S \StrBehind{#1}{?}[\tmpc]\tmpc\setcounter{tmpsec}{\tmpc}}
+      }
+    }
+  }
+  {
+    \tk[overlay, gray]{\tdraw{(-4, 0)--(4, 0)}
+      \tnode[fill=white]{
+        {\small Глава \StrBefore{#1}{?}[\tmpp]\tmpp\setcounter{tmpchap}{\tmpp}}
+      }
+    }
+  }
+}
+\newcommand{\inditt} [1]{\small #1}
+\newcommand{\inditx} [1]{#1}
