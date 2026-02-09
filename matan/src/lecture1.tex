@@ -20,137 +20,96 @@
 \jen{
   \item
     \[ \int R\fd{x, \fd{\frac{ax + b}{cx + d}}^r\,}dx \]
+
     где $R$ --- рациональная функция, $ad - bc  \neq 0$, $r \in Q$
 
-    тогда $r = \frac{p}{q}, p \in \Z, q \in \N$
-
-  \[ \frac{ax + b}{cx + d} = t^q \iff (ax + b)) - (cx + d)t^q = 0 \iff
-  x = \frac{dt^q - b}{a - ct^q}\]
-
-  \[ \fd{\frac{ax + b}{cx + d}}^q = t^p \]
-  Подвид:
-    \[ \int R\fd{x, \fd{\frac{ax + b}{cx + d}}^r, \ldots, \fd{\frac{ax + b}{cx + d}}^{r_n}} \]
-
+    В этом случае $r = \frac{p}{q}, p \in \Z, q \in \N$, тогда введем следующую
+    замену: $\frac{ax + b}{cx + d} = t^q$, и получим
+    \[ (ax + b) - (cx + d)t^q = 0 \iff
+    x = \frac{dt^q - b}{a - ct^q}\]
+    \[ \fd{\frac{ax + b}{cx + d}}^q = t^p \]
+  Подвид вида
+    \[ \int R\fd{x, \fd{\frac{ax + b}{cx + d}}^r, \ldots,
+    \fd{\frac{ax + b}{cx + d}}^{r_n}}dx \]
+  приводится к рациональной функции аналогично, но в качестве $q$ берем
+  $\NOK$ от $r_1, \ldots, r_n$.
   \item 
-    \[ \int R\fd{x, \sqrt{ax^2 + bx + c}}dx \]
-
-    где $a \neq 0$
+    \[ \int R\fd{x, \sqrt{ax^2 + bx + c}}dx,\quad a \neq 0 \]
 
     Подстановки Эйлера:
 
     \jen{
       \item $a > 0$
-
       \[ \sqrt{ax^2 + bx + c} = \pm \sqrt a \pm t \]
+      Возведем это равенство в квадрат
       \[ ax^2 + bx + c = ax^2 \pm 2 \sqrt a x t + t^2 \]
-
       Тогда
-
       \[ x = \frac{t^2 - c}{b \mp 2 \sqrt a t} \]
-
       $x'$ -- рациональная функция от $t$.
-    \item $c > 0$
-      \[ \sqrt{ax^2 + bx + c} = \pm x t \pm \sqrt c \]
-      \[ ax^2 + bx + c = x^2 t^2 \pm 2xt \sqrt c + c \]
-      \[ x = \frac{-b \pm 2t \sqrt c}{a - t^2} \]
-
-      Отсюда $x'$ -- рациональная функция
+      \item $c > 0$
+        \[ \sqrt{ax^2 + bx + c} = \pm x t \pm \sqrt c \]
+        Снова возведем в квадрат и получим
+        \[ ax^2 + bx + c = x^2 t^2 \pm 2xt \sqrt c + c \]
+        Тогда мы можем выразить $x$
+        \[ x = \frac{-b \pm 2t \sqrt c}{a - t^2} \]
+        Отсюда $x'$ -- рациональная функция
       \item
-        \[ ax^2 + bx + c = a(x - x_1)(x - x_2) \]
-        где $x_1 \neq x_2$
-
-        \[ \sqrt{ax^2 + bx + c} = \pm \sqrt a (x - x_1)t \]
-        Возведем в квадрат обе части:
+        \[ ax^2 + bx + c = a(x - x_1)(x - x_2),\quad x_1 \neq x_2 \]
+        В данном случае
+        \[ \sqrt{ax^2 + bx + c} = \pm \sqrt{\fp{a}} (x - x_1)t \]
+        Возведем в квадрат обе части
         \[ a(x - x_1)(x - x_2) = \fp{a}(x - x_1)^2 t^2 \]
-        Тогда, сокращая, получим:
+        Тогда, сокращая, получим
         \[ x = \frac{ax_2 - \fp{a}x_1 t^2}{a - \fp{a}t^2} \]
         Значит, $x'$ -- рациональная функция
     }
     \item
       \[ \int R\fd{x, \sqrt{ax^2 + bx + c}}dx \]
-
-      Введем $Y = ax_2 + bx + c, y = \sqrt Y$, тогда
-
+      Введем $Y = ax_2 + bx + c$ и $y = \sqrt Y$, тогда
       \[ R(x, y) = \frac{R_1(x) + R_2(x) y}{R_3(x) + R_4(x) y} \]
-
-      Затем мы можем (?) записать выражение через многочлены $P$:
-
-      \[ R(x, y) = \frac{P_1(x) + P_2(x) y}{P_3(x) + P_4(x) y} = \]
-      \[ = \frac{\fd{P_1(x) + P_2(x)y}\fd{P_3(x) - P_r(x)y}}{P_3^2(x) -
-      P_4^2(x)Y} = \]
-      \[ = R_1(x) + R_2(x)y \]
-
+      Затем мы можем записать выражение через многочлены $P$:
+      \[ R(x, y) = \frac{P_1(x) + P_2(x) y}{P_3(x) + P_4(x) y} =
+      \frac{\fd{P_1(x) + P_2(x)y}\fd{P_3(x) - P_4(x)y}}{P_3^2(x) -
+      P_4^2(x)Y} = R_1(x) + R_2(x)y \]
       \[ \int P(x)ydx = \int \frac{P(x)Y}{y} dx \]
-
       Хотим найти
-
       \[ \int \frac{P(x)}{y} dx \]
-
       Пусть $\deg P = n$, тогда интеграл запишется в виде:
-
       \[ \int \frac{P(x)}{y} dx = Q(x)y + \lambda \int \frac{dx}{y} \]
-
-      $\deg Q = n - 1, \lambda \in \R$
-
-      После дифференцирования получаем:
-
-    \[ \frac{P(x)}{y} = Q'(x)y + \frac{Q(x)Y'}{2 \sqrt Y} + \frac{\lambda}{y} = \]
-
-    \[ = \frac{Q'(x) \cdot Y + \frac{1}{2} Q(x)Y' + \lambda}{y} \]
-
+      где $\deg Q = n - 1, \lambda \in \R$. После дифференцирования получаем:
+    \[ \frac{P(x)}{y} = Q'(x)y + \frac{Q(x)Y'}{2 \sqrt Y} + \frac{\lambda}{y} =
+    \frac{Q'(x) \cdot Y + \frac{1}{2} Q(x)Y' + \lambda}{y} \]
     Тогда нам необходимо найти интеграл вида:
-
     \[ V_m = \int \frac{x^m}{y} dx \]
-
     Продифференцируем:
-
-    \[ \fd{x_{m - 1}y}' = (m - 1)x^{m - 2}y + \frac{x^{m - 1}\fd{2ax + b}}{2y} \]
-
+    \[ \fd{x^{m - 1}y}' = (m - 1)x^{m - 2}y + \frac{x^{m - 1}\fd{2ax + b}}{2y} \]
     Тогда
-
     \[ x^{m -1}y = (m - 1) \int \frac{x^{m - 2}(ax_2 + bx + c)}{y}dx +
     \frac{1}{2} \int \frac{2ax^m + bx^{m - 1}}{y} dx = \]
-
     \[ a(m - 1)V_m + (m - \frac{1}{2})bV_{m - 1} + c(m - 1)V_{m - 2} \]
-
     Итого получаем:
-
     \[ V_m = p_{m - 1}(x)y + \lambda \int \frac{dx}{y} \]
-
     После получим интегрирования слагаемые:
-
     \[ \int \frac{A}{x - \alpha}^k \frac{dx}{y} \]
-
     Введем замену $x - \alpha = \frac{1}{t}$
-
     \[ dx = - \frac{dt}{t^2} \]
-
     \[ y = \sqrt{a\fd{\frac{1}{t} + \alpha}^2 + b\fd{\frac{1}{t} + \alpha} + c}
     = \frac{\widetilde y}{\fp{t}} \]
-
     Итого
-
     \[ \int \frac{A}{x - \alpha}^k \frac{dx}{y} = - \int \frac{A t^k \fp{t}}{t^2
     \widetilde y}dt \]
-
   \item Дифференциальный бином.
     \[ \int x^m(a + bx^n)^p dx \]
     где $m, n, p \in Q$
-
     Этот интеграл берется только в трех случаях:
-
     \jen{
       \item $p \in \Z, \nu$ --- НОК знаменателей m, n
         Возьмем $x = t^\nu$, тогда $dx = \nu t^{\nu - 1}dt$
-
         Пусть теперь $p \ni \Z$, тогда сделаем замену $x^n = z$, откуда
         $x = z^{\frac{1}{n}}; dx = \frac{1}{n} z^{\frac{1}{n} - 1} dz$
-
         Тогда интеграл получится в виде
         \[ \frac{1}{n} \int z^{^frac{m + 1}{n} - 1}\fd{a + bz}^p dz \]
-
         Обозначим рациональное $q := \frac{m + 1}{n} - 1$, тогда
-
         \[ \frac{1}{n} \int z^q (a + bz)^p dz \]
       \item $q \in \Z$
         $a + bz = t^\mu$, где $\mu$ --- знаменатель $p$
@@ -158,9 +117,7 @@
         \[ dz = \frac{1}{b}\mu t^{\mu - 1}dt \]
       \item $p + q \in \Z$
         \[ \int z^q(a + bz)^p dz = \int z^{p + q}\fd{\frac{a + bz}{z}}^p dz \]
-
         Введем замену: $\frac{a + bz}{z} = t^\mu$
-
         \[ z = \frac{a}{t^\mu - b} \]
     }
   \item \jth[Абеля]{
