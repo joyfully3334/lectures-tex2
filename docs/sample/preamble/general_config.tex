@@ -438,6 +438,8 @@ positioning, fit}
 \newcommand{\tm}     [2][]{\tmatrix[#1]{#2}}
 
 \newcommand{\vc}[1]{
+  % \mathstyle % To debug styles
+  {}           % To fix some strange issues
   \ifnum \mathstyle>6
     \tk{
       \def\vup{0.16ex}
@@ -446,7 +448,7 @@ positioning, fit}
       ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
     }
   \else
-    \ifnum \mathstyle>4
+    \ifnum \mathstyle>3
       \tk{
         \def\vup{0.2ex}
         \node[inner sep=0pt] (char) {$\scriptstyle #1$};
