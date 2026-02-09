@@ -4,65 +4,71 @@
 
 \lectureinfo{2}{06.02.2026}
 
-$f: D \to \R = Y$
+\jdf[Функция многих переменных]{
+  Функцией многих переменных называем функцию $f: D \to \R$, где
+  $D \subset \R^n$.
+}
 
-$D \subset \R^n = X$
+\jdf[Предел функции многих переменных]{
+  Пусть $\vc x_0$ --- предельная точка $D$. Тогда предел определяется:
 
-Приведем определение предела:
+  \jit{
+    \item по Коши:
+    \[ \dlm{\vc x \to  \vc x_0}{\vc x \in D} f(\vc x) = l \iff \forall
+      \epsilon > 0 \then \exists \delta > 0: \forall \vc x \in D \land
+      0 < \rho_x(\vc x, \vc x_0) < \delta \hk \rho_y(f(\vc x), l) < \epsilon \]
+  \item по Гейне:
+    \[ \dlm{\vc x \to  \vc x_0}{\vc x \in D} f(\vc x) = l \iff
+      \forall \fc{\vc x_m} \subset D: \lm[m \to \infty] \vc x_m = \vc x_0
+      \land \vc x_m \neq \vc x_0 \hk \lm[m \to \infty] f(\vc x_m) = l \]
+  }
+}
 
-\jdf[Предел]{
-  Пусть $\vc x_0$ -- предельная точка $D$. Тогда предел определяется:
+\jdf[Предел по совокупности переменных]{
+  Если $\vc x_0$ --- внутренняя точка $D \cup \fc{\vc x_0}$, то $\lm[\vc x
+  \to \vc x_0] f(\vc x)$ называется пределом по совокупности переменных.
+}
 
-  по Коши:
-
-  \[ \lm[] f(\vc x) = l \iff \forall \epsilon > 0 \then \exists \delta > 0 :
-  \forall \vc x \in D, 0 < \rho^x(\vc x, \vc x_0) < \delta \hk \rho_y(f(\vc x),
-l) < \epsilon \]
-
-  по Гейне:
-
-  \[ \lm[] f(\vc x) = l \iff \forall \fc{\vc x_m} \subset D: \lm[m \to
-  \infty] \vc x_m = \vc x_0, \vc x_m \neq \vc x_0 \hk \lm[m \to \infty] f(\vc
-  x_m) = l \]
-
-  Если $\vc x_0$ -- внутренняя точка D, то $\lm[\vc x \to \vc x_0]$ называется
-  пределом по совокупности переменных.
-
-  Если $D = D_{\vc d}$ -- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
+\jdf[Предел по направлению]{
+  Если $D = D_{\vc d}$ --- луч с началом в точке $\vc x_0$ в направлении вектора $\vc d$ (или
   его пересечение с проколотой окрестностью точки $\vc x_0$), то предел
-  $\lm[\vc x \to \vc x_0] f(\vc x)$ называется пределом по направлению $\vc d$
+  $\dlm{\vc x \to \vc x_0}{\vc x \in D_{\vc d}} f(\vc x)$ называется пределом
+  по направлению $\vc d$.
 }
 
 \jlm{
-  \[ \lm[\vc x \to \vc x_0] f(\vc x) = \lm[t \to 0+] f(\vc x_0 + t\vc d) \]
-
-  \[ \vc x \in D_{\vc d} \iff \vc x = \vc x_0 + t \vc d, t \ge 0 (0 < t < r) \]
-}
-
-\jth{
-  Если существует предел по совокупности переменных
-  $\lm[\vc x \to \vc x_0] f(\vc x)$, то существует предел по любому
-  направлению $\lm[\vc x \to \vc x_0]$. Обратное, вообще говоря не верно.
+  \[ \dlm{\vc x \to \vc x_0}{\vc x \in D_{\vc d}} f(\vc x) =
+  \lm[t \to 0+] f(\vc x_0 + t\vc d) \]
 }
 
 \jprf{
-  Если $\vc x \in D_{\vc d}, 0 < \fp{\vc x - \vc x_0} < \delta$, то
-  $\vc x \in D, 0 < \fp{\vc x - \vc x_0} < \delta$.
+  Достаточно заметить, что
+  \[ \vc x \in D_{\vc d} \iff \vc x = \vc x_0 + t \vc d,\ t \ge 0\ (0 < t < r) \]
+}
+
+\jth{
+  Если существует предел $\lm[\vc x \to \vc x_0] f(\vc x)$ по совокупности
+  переменных, то существует предел $\dlm{\vc x \to \vc x_0}{\vc x \in D_{\vc d}}
+  f(\vc x)$ по любому направлению $\vc d \neq 0$. Обратное, вообще говоря, не
+  верно.
+}
+
+\jprf{
+  Из определения по Коши, если $\vc x \in D_{\vc d}, 0 < \fp{\vc x - \vc x_0}
+  < \delta$, то $\vc x \in D, 0 < \fp{\vc x - \vc x_0} < \delta$.
 }
 
 \kexm{
   \[ f(x, y) = \left\{\jarr{c c}{\frac{xy^2}{x^2 + y^2}, & (x, y) \neq (0, 0)
   \\ 0, & (x, y) = (0, 0)}\right. \]
-
-  \[ \lm[(x, y) \to (0, 0)] f(x, y) = \lm[t \to 0+] f(0 + t\alpha, 0 +
-  t\beta) = \lm[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
-
+  По \hyperref[lemma6.1.1]{лемме 1} получаем
+  \[ \dlm{(x, y) \to (0, 0)}{(x, y) \in D_{(\alpha, \beta)}} f(x, y) =
+    \lm[t \to 0+] f(0 + t\alpha, 0 + t\beta) =
+  \lm[t \to 0+]\frac{t^3\alpha\beta^2}{t^2\alpha^2 + t^4\beta^4} = 0 \]
   По определению Гейне возьмем последовательность $\fd{\frac{1}{m^2}, \frac{1}{m}}
-  to (0, 0)$, тогда
-
+  \to (0, 0)$, тогда
   \[ f\fd{\frac{1}{m^2}, \frac{1}{m}} = \frac{1/m^4}{2/m^4} = \frac{1}{2} \]
-
-  Тогда общего предела у функции нет, хотя по каждому направлению -- есть.
+  Тогда общего предела у функции нет, хотя по каждому направлению --- есть.
 }
 
 \jdf[Повторный предел]{
@@ -72,41 +78,41 @@ l) < \epsilon \]
 \knt{
   Наличие предела по совокупности переменных и повторных пределов никак не
   связано.
-
-  \kexm{
-    \[ g(x, y) = \left\{\jarr{c}{\sqrt{x^2 + y^2} \sin \frac{1}{x} \sin \frac{1}{y}\\
-    0}\right. \]
-
-    \[ \lm[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
-    \fp{(x, y)} \]
-
-    \[ \lm[y \to 0]{g(x, y)} \text{ существует и равен 0} \iff x = 0
-    \text{ или } x = \frac{1}{k}, k \in K \]
-  }
 }
 
-Если $\vc x_0$ -- предельная точка больати определения $D(f)$, то $f$ непрерывна
-в $\vc x_0$ тогда и только тогда, когда $\lm[x \to \vc x_0] f(\vc x) = f(\vc
-x_0)$
+\kexm{
+  \[ g(x, y) = \left\{\jarr{c c}{\sqrt{x^2 + y^2} \sin \frac{1}{x}
+  \sin \frac{1}{y}, & (x, y) \neq (0, 0) \\
+  0, & (x, y) = (0, 0) \\}\right. \]
+  У данной последовательности есть предел по совокупности
+  \[ \lm[(x, y)\to(0, 0)] g(x, y) = 0 \text{, так как } \fp{g(x, y)} \le
+  \fp{(x, y)} \]
+  $\lm[y \to 0]{g(x, y)} \text{ существует и равен 0} \iff x = 0
+  \text{ или } x = \textstyle\frac{1}{k}, k \in K$. Тогда внутренний предел не определен в
+  проколотой окрестности, а значит повторного предела действительно нет.
+}
 
-Если $\vc x_0$ -- изолированная точка $D(f)$, то $f$ непрерывна в $\vc x_0$.
-Непрерывность по совокупности переменных и непрерывность по направлению
-определяются естественным образом.
+Если $\vc x_0$ --- предельная точка области определения $D(f)$, то $f$ непрерывна
+в $\vc x_0$ тогда и только тогда, когда $\dlm{\vc x \to \vc x_0}{\vc x \in D(f)}
+f(\vc x) = f(\vc x_0)$. Если $\vc x_0$ --- изолированная точка $D(f)$, то $f$
+непрерывна в $\vc x_0$.
+
+Непрерывность по совокупности переменных и
+непрерывность по направлению определяются естественным образом.
 
 \jth[Непрерывность сложной функции многих переменных]{
-  Если $f: D \to \R$ непрерывна в точке $\vc y_0 = \fd{y_0^{(1)}, \ldots, y_0^{(n)}} \in D$,
+  Если $f: D \to \R$ непрерывна в точке $\vc y_0 = \fd{y_0\supr 1, \ldots, y_0\supr n} \in D$,
   функции $g_j(\vc x), j = 1, \ldots, n$ непрерывны в точке $\vc x_0 \in G
-  \subset \R^m, g_j(\vc x_0) = y_0^{(j)}, j = 1, \ldots, m$, то сложная функция
+  \subset \R^m, g_j(\vc x_0) = y_0\supr j, j = 1, \ldots, n$, то сложная функция
   $h(\vc x) = f\fd{g_1(\vc x), \ldots, g_n(\vc x)}$ непрерывна в $\vc x_0$.
 }
 
 \jprf{
   Возьмем последовательность Гейне:
-
-  \[ \fc{\vc x_k} \subset D(h): \lm[k \to \infty] \vc x_k = \vc x_0 \hk
-  \lm[k \to \infty] g_j(\vc x_k) = g_k(\vc x_0) = y_0^{(j)} \implies
-  \fd{g_1(\vc x_k), \ldots, g_n(\vc x_k)} \to[k \to \infty] \vc y_0 \implies
-  f \fuck \]
+  \kmlt{\fc{\vc x_k} \subset D(h): \lm[k \to \infty] \vc x_k = \vc x_0 \hk
+  \lm[k \to \infty] g_j(\vc x_k) = g_j(\vc x_0) = y_0^{(j)} \implies \\
+  \implies \fd{g_1(\vc x_k), \ldots, g_n(\vc x_k)} \tto[k \to \infty] \vc y_0
+  \implies f(g_1(\vc x_k), \ldots, g_n(\vc x_k)) \tto[k \to \infty] f(\vc y_0)}
 }
 
 \jth[Кантор]{
@@ -116,44 +122,32 @@ x_0)$
 
 \jprf{
   (От противного). Определение равномерной непрерывности на $K$:
-
   \[ \forall \epsilon > 0 \then \exists \delta > 0: \forall \vc x_1, \vc x_2 \in
-  K, \fp{\vc x_1 - \vc x_2} < \delta \hk \fp{f(\vc x_1) - f(\vc x_2)} < \epsilon \]
-
+  K: \fp{\vc x_1 - \vc x_2} < \delta \hk \fp{f(\vc x_1) - f(\vc x_2)} < \epsilon \]
   Тогда отрицанием будет
-
-  \[ \exists \epsilon > 0 \then \forall \delta > 0 \then \exists \vc x_1, \vc
-  x_2 \in K, \fp{\vc x_1, \vc x_2} < \delta: \fp{f(\vc x_1) - f(\vc x_2)} \ge
+  \[ \exists \epsilon > 0 : \forall \delta > 0 \then \exists \vc x_1, \vc
+  x_2 \in K: \fp{\vc x_1 - \vc x_2} < \delta \hk \fp{f(\vc x_1) - f(\vc x_2)} \ge
   \epsilon \]
-
-  Построим последовательность по $\delta := 1, \frac{1}{2}, \ldots$
-
-  \fuck
-  \[ \fc{\vc x_{1, k}}, \fc{\vc x_{2, k}} \subset K \]
-
-  По критерий компактности $\exists \fc{{\vc x_{1, k}}_j}, \lm[j \to \infty]
-  {\vc x_{1, k}}_j = \vc x_0 \in K$
-
-  Тогда
-
-\[ \fp{{\vc x_{2, k}}_j - \vc x_0} \le \fp{{\vc x_{2, k}}_j - {\vc x_{1, k}}_j} +
-  \fp{{\vc x_{1, k}}_j - \vc x_0} \implies
-  \lm[j \to \infty] {\vc x_{2, k}}_j = \vc x_0\]
-
+  Построим две последовательности по $\delta := 1, \frac{1}{2}, \ldots$
+  \[ \fc{\vc x_{1, k}}, \fc{\vc x_{2, k}} \subset K: \fp{\vc x_{1, k} - \vc
+  x_{2, k}} < \frac{1}{k} \hk \fp{f(\vc x_{1, k}) - f(\vc x_{2, k})} \ge
+  \epsilon \]
+  По критерию компактности $\exists \fc{\vc x_{1, k_j}}: \lm[j \to \infty]
+  \vc x_{1, k_j} = \vc x_0 \in K$, тогда
+  \[ \fp{\vc x_{2, k_j} - \vc x_0} \le \fp{\vc x_{2, k_j} - \vc x_{1, k_j}} +
+  \fp{\vc x_{1, k_j} - \vc x_0} \implies
+  \lm[j \to \infty] \vc x_{2, k_j} = \vc x_0\]
   Так как $f$ непрерывна в $\vc x_0$, то
-
-  \[ \lm[j \to \infty] f({\vc x_{1, k}}_j) = \lm[j \to \infty] f({\vc x_{2,
-  k}}_j) = f(\vc x_0) \]
-
-  \[ \fp{f(\vc x_{1, k}}_j) - f({\vc x_{2, k}}_j) \ge \epsilon \]
-
+  \[ \lm[j \to \infty] f(\vc x_{1, k_j}) = \lm[j \to \infty] f(\vc x_{2,
+  k_j}) = f(\vc x_0) \]
+  \[ \fp{f(\vc x_{1, k_j}) - f(\vc x_{2, k_j})} \ge \epsilon \]
   Но вместе они не могут выполняться. Противоречие.
 }
 
 \jdf[Линейная связность]{
   Множество $A$ в $\R^n$ называется линейно связным, если $\forall \vc x \neq
-  \vc y \in A \then\exists$ кривая $\gamma_i \subset A$ такая, что
-  $\gamma(a) = \vc x, \gamma(b) = \vc y$.
+  \vc y \in A$ существует кривая $\gamma_i: \fb{a, b} \to A
+  \fd{\gamma_i \subset A}$ такая, что $\gamma(a) = \vc x, \gamma(b) = \vc y$.
 }
 
 \jdf[Связность]{
@@ -163,18 +157,16 @@ x_0)$
 
 \jprp{
   Множество $A$ в $\R^n$ является связным, если его нельзя представить
-  объединиением двух непересекающихся непустых открытых в нем множеств.
+  объединением двух непересекающихся непустых открытых в нем множеств.
 
-  Множество $G \subset A$ открыто в $A \iff \exists \mathfrak g \subset \R^n$
-  открытое, такое, что $G = \mathfrak g \cap A$.
+  Множество $G \subset A$ открыто в $A \iff \exists \CG \subset \R^n$
+  открытое, такое, что $G = \CG \cap A$.
 }
 
 \jprf{
-  \[ \forall x \in G \then\exists U_\epsilon^A(\vc x) \subset G \]
-
-  Возьмем
-
-  \[ \mathfrak g := \bigcup_{\vc x \in G} U_\epsilon(\vc x) \]
+  $G$ открыто в $A$, значит $\forall x \in G \then\exists U_\epsilon^A(\vc x)
+  \subset G$. Возьмем $\CG := \bigcup\limits_{\vc x \in G} U_\epsilon(\vc x)$.
+  Тогда $G = \CG \cap A$.
 }
 
 \knt{
@@ -182,48 +174,41 @@ x_0)$
 }
 
 \jth{
-  Если $A \in \R^n$ линейно связно, то оно линейно связно.
+  Если $A \in \R^n$ линейно связно, то оно связно.
 }
 
 \jprf{
-  (От противного). $A$ -- не связно, следовательно $\exists G_1, G_2$ ---
-  открытых множества в $A$, таких, что
-
-  \[ G_1 \neq \varnothing, G_2 \neq \varnothing, G_1 \cap G_2 = A \]
-
-  Пусть $\vc x \in G_1, \vc y \in G_2$. $A$ -- линейно связно, следовательно
-
-  \[ \exists \gamma \subset A, \gamma(a) = \vc x, \gamma(b) = \vc y \]
-
-  $\gamma: [a, b] \to A$
-
+  (От противного). Если $A$ --- не связно, то найдутся $G_1, G_2$ ---
+  открытые множества в $A$, такие, что
+  \[ G_1 \neq \varnothing, G_2 \neq \varnothing,\quad G_1 \cap G_2 = \varnothing
+  \quad G_1 \cup G_2 = A\]
+  Пусть $\vc x \in G_1, \vc y \in G_2$. $A$ --- линейно связно, следовательно
+  \[ \exists \gamma: [a, b] \to A: \gamma(a) = \vc x, \gamma(b) = \vc y \]
   Обозначим $T := \sup\fc{t: \gamma(t) \in G_1}$, $T \in [a, b]$. Предположим,
-  что $\gamma(T) \in G_1$, тогда $\exists G_1 = \mathfrak g_1 \cap A$
-
-  \[ \gamma(T) \in \mathfrak g_1 \implies U_\epsilon(\gamma(T)) \subset
-  \mathfrak g_1 \]
-
-  \[ T < b \implies \exists \delta > 0: \gamma([T, T + \delta)) \subset
-  U_\epsilon(\gamma(T)) \]
-
-  Получаем противоречие.
+  что $\gamma(T) \in G_1$, тогда $\exists G_1 = \CG_1 \cap A$. Так как
+  $\gamma(T) \in \CG_1$, то, $U_\epsilon(\gamma(T)) \subset \CG_1$.
+  $T$ точно меньше $b$, а значит, $\exists \delta > 0: \gamma([T, T + \delta))
+  \subset U_\epsilon(\gamma(T))$. То есть, $\gamma(T)$ не лежит в $G_1$.
+  Аналогично доказывается, что $\gamma(T)$ не лежит в $G_2$, и отсюда получаем
+  противоречие.
 }
 
 \knt{
   Обратное, вообще говоря, не верно.
 
   \kexm{
-    Контрпример иллюстрирован на \hyperref[figure6.1.1]{рис. 6.1}
+    Контрпример иллюстрирован на \hyperref[figure6.1.1]{рис. 6.1}. Данное
+    множество очевидно является связным, и в то же время не является линейно
+    связным.
   }
 }
 
 \tpic{Контрпример}{
-  \tdraw{(0, 0) circle (1)}
-  \tdraw[-Stealth]{(-2, 0)--(2.5, 0) node[below left] {x}}
-  \tdraw[-Stealth]{(0, -1.5)--(0, 2) node[below left] {y}}
+  \tdraw[-Stealth]{(-2, 0)--(2.5, 0) node[below left] {$x$}}
+  \tdraw[-Stealth]{(0, -1.5)--(0, 2) node[below left] {$y$}}
   \tp{(0, 0) node[below left] {$O$}}
-  \tdraw{(2 * 3.14 * 31:1 + 1 / 31 / 2 / 3.14 * 100)
-  foreach \i in {31, 31.5, ..., 300}{
+  \tdraw{(2 * 3.14 * 23:1 + 1 / 23 / 2 / 3.14 * 100)
+  foreach \i in {23, 23.5, ..., 400}{
     --(2 * 3.14 * \i:1 + 1 / \i / 2 / 3.14 * 100)
   }}
   \tp{(4.5, 0) node {
