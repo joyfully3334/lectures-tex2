@@ -210,10 +210,10 @@ x)\cdot(a_{nn} - x) \]
 \jprf{
   Все $\lambda_i$ являются собственными значениями $\phi_i$ выберем при $r = 1,
   \ldots, n$ собственный вектор $\vc e_i$ с собственным значением $\lambda_i$.
-  Тогда $\vc_i \in V_{\lambda_i}$, поскольку сумма $V_{\lambda_1} + \ldots +
+  Тогда $\vc e_i \in V_{\lambda_i}$, поскольку сумма $V_{\lambda_1} + \ldots +
   V_{\lambda_n}$ --- прямая, то есть $(\vc e_1, \ldots, \vc e_n)$ --- линейно
-  % независимы, а значит это базис. Тогда $\phi \is[e] \diag(\lambda_1, \ldots,
-  % \lambda_n)$.
+  независимы, а значит это базис. Тогда $\phi \is[e] \diag(\lambda_1, \ldots,
+  \lambda_n)$.
 }
 
 \jdf{
@@ -235,8 +235,9 @@ x)\cdot(a_{nn} - x) \]
 }
 
 \twrap{поворот}{l}{0pt}{
-  \tdraw[-Stealth]{(0, 0)--(3, 1)}
-  \tdraw[-Stealth]{(0, 0)--(-1, 3)}
+  \tdraw[-Stealth]{(0, 0) coordinate (C)--(3, 1) coordinate (A)}
+  \tdraw[-Stealth]{(0, 0)--(-1, 3) coordinate (B)}
+  \tp{pic[draw, -Stealth, angle radius=1.4cm] {angle = A--C--B}}
 }
 
 \knt{
