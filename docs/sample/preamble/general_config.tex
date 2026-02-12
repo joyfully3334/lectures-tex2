@@ -101,19 +101,14 @@ positioning, fit}
 \theoremstyle{definition}
 \newtheorem  {definition}  {Определение}[section]
 \newtheorem* {definition*} {Определение}
-\newtheorem  {exercise}    {Упражнение}
-\newtheorem* {exercise*}   {Упражнение}
-\newtheorem  {problem}     {Задача}
-\newtheorem* {problem*}    {Задача}
-\newtheorem  {reminder}    {Напоминание}
-\newtheorem* {reminder*}   {Напоминание}
-\newtheorem  {example}     {Пример}
-\newtheorem* {example*}    {Пример}
+\newtheorem* {exercise}    {Упражнение}
+\newtheorem* {problem}     {Задача}
+\newtheorem* {reminder}    {Напоминание}
+\newtheorem* {example}     {Пример}
 \newtheorem* {examples}    {Примеры}
 
 \theoremstyle{remark}
-\newtheorem  {note}        {Замечание}
-\newtheorem* {note*}       {Замечание}
+\newtheorem* {note}        {Замечание}
 \newtheorem* {solution}    {Решение}
 
 %%% Свои символы и команды
@@ -248,21 +243,13 @@ positioning, fit}
 \newcommand{\kprop}       [2][]{\kproposition[#1]{#2}}
 \newcommand{\kprp}        [2][]{\kproposition[#1]{#2}}
 
-\newcommand{\jexercise}   [1]{\begin{exercise}#1\mylbl{exercise}\end{exercise}}
+\newcommand{\jexercise}   [1]{\begin{exercise}#1\end{exercise}}
 \newcommand{\jexrc}       [1]{\jexercise{#1}}
 \newcommand{\jexc}        [1]{\jexercise{#1}}
 \newcommand{\jexr}        [1]{\jexercise{#1}}
 
-\newcommand{\kexercise}   [1]{\begin{exercise*}#1\end{exercise*}}
-\newcommand{\kexrc}       [1]{\kexercise{#1}}
-\newcommand{\kexc}        [1]{\kexercise{#1}}
-\newcommand{\kexr}        [1]{\kexercise{#1}}
-
-\newcommand{\jproblem}    [1]{\begin{problem}#1\mylbl{problem}\end{problem}}
+\newcommand{\jproblem}    [1]{\begin{problem}#1\end{problem}}
 \newcommand{\jprb}        [1]{\jproblem{#1}}
-
-\newcommand{\kproblem}    [1]{\begin{problem}#1\end{problem}}
-\newcommand{\kprb}        [1]{\kproblem{#1}}
 
 \newcommand{\jproof}      [1]{\begin{proof}#1\end{proof}}
 \newcommand{\jprof}       [1]{\jproof{#1}}
@@ -285,31 +272,18 @@ positioning, fit}
 \newcommand{\jcrl}        [1]{\jcorollary{#1}}
 \newcommand{\jcr}         [1]{\jcorollary{#1}}
 
-\newcommand{\jnote}       [1]{\begin{note}#1\mylbl{note}\end{note}}
+\newcommand{\jnote}       [1]{\begin{note}#1\end{note}}
 \newcommand{\jnt}         [1]{\jnote{#1}}
 
-\newcommand{\knote}       [1]{\begin{note*}#1\end{note*}}
-\newcommand{\knt}         [1]{\knote{#1}}
-
-\newcommand{\jreminder}   [1]{\begin{reminder}#1\mylbl{reminder}\end{reminder}}
+\newcommand{\jreminder}   [1]{\begin{reminder}#1\end{reminder}}
 \newcommand{\jremind}     [1]{\jreminder{#1}}
 \newcommand{\jrmnd}       [1]{\jreminder{#1}}
 \newcommand{\jrmd}        [1]{\jreminder{#1}}
 
-\newcommand{\kreminder}   [1]{\begin{reminder*}#1\end{reminder*}}
-\newcommand{\kremind}     [1]{\kreminder{#1}}
-\newcommand{\krmnd}       [1]{\kreminder{#1}}
-\newcommand{\krmd}        [1]{\kreminder{#1}}
-
-\newcommand{\jexample}    [1]{\begin{example}#1\mylbl{example}\end{example}}
+\newcommand{\jexample}    [1]{\begin{example}#1\end{example}}
 \newcommand{\jexmpl}      [1]{\jexample{#1}}
 \newcommand{\jexmp}       [1]{\jexample{#1}}
 \newcommand{\jexm}        [1]{\jexample{#1}}
-
-\newcommand{\kexample}    [1]{\begin{example*}#1\end{example*}}
-\newcommand{\kexmpl}      [1]{\kexample{#1}}
-\newcommand{\kexmp}       [1]{\kexample{#1}}
-\newcommand{\kexm}        [1]{\kexample{#1}}
 
 \newcommand{\jexamples}   [1]{\begin{examples}#1\end{examples}}
 \newcommand{\jexmpls}     [1]{\jexamples{#1}}
