@@ -32,8 +32,8 @@
 }
 
 \jprf{
-  По \hyperref[lemma6.1.2]{лемме 2}, $f(E)$ связно, тогда по
-  \hyperref[lemma6.1.3]{лемме 1} $f(E)$ --- промежуток. Тогда
+  По \hyperref[lemma6.1.3]{лемме 3}, $f(E)$ связно, тогда по
+  \hyperref[lemma6.1.2]{лемме 2} $f(E)$ --- промежуток. В таком случае
   требуемое следует из определения промежутка.
 }
 
@@ -57,24 +57,31 @@
   $\vc y \in U_{\epsilon_1}(\vc x_0) \cap G_2$. Противоречие.
 }
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
     \tk[draw]{
-      \tp{(-1, -1) node {$\vc x_1$}}
-      \tp{(1, .5) node {$\vc x_0$}}
-      \tp[fill, opacity=.2]{(1, .5) circle (.8)}
+      \tp[fill=black!10]{(1, .5) circle (1)}
+      \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
+      \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
+      \tp[draw, -Stealth]{(-1, -1)--(1, .5)}
     }
+    \caption{Пример 1}
   \end{subfigure}
   \begin{subfigure}{0.4\textwidth}
     \centering
     \tk{
-      \tp{(-1, -1) node {$\vc x_1$}}
-      \tp{(1, .5) node {$\vc x_0$}}
-      \tp[fill, opacity=.2]{(1, .5) circle (.8)}
+      \tp[fill=black!10]{(1, .5) circle (1)}
+      \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
+      \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
+      \tp[fill]{($(1, .5)+(-.6, .6)$) circle (.03) node[above left] {$\vc y_0$}}
+      \tp[draw, -Stealth]{(-1, -1)--(1, .5)}
+      \tp[draw, -Stealth]{(1, .5)--($(1, .5)+(-.6, .6)$)}
     }
+    \caption{Пример 2}
   \end{subfigure}
+  \caption{Пример на $\R^2$ для \hyperref[theorem6.1.6]{теоремы 6}}
 \end{figure}
 
 \section{Дифференцируемость функций многих переменных}
@@ -179,7 +186,7 @@
   \frac{\pal f}{\pal x_n}(x_{1, 0}, \ldots, x_{n - 1, 0}, \xi_n) \cdot x_n$
 }
 
-\tk{
-  \tp[fill=black!20]{(0, 0) circle (2)}
+\tpic{Эээ}{
+  \tp[fill=black!10]{(0, 0) circle (1.4)}
   \tp{(0, 0) node {$\vc x_0$}}
 }
