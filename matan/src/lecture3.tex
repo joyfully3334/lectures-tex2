@@ -183,10 +183,21 @@
   \frac{\pal f}{\pal x_1} (\xi_1, x_{2, 0} + \dt x_2, \ldots, x_{n, 0} + \dt
   x_n) \cdot \dt x_1 + \frac{\pal f}{\pal x_2}(x_{1, 0}, \xi_2, x_{3, 0} + \dt
   x_3, \ldots, x_{n, 0} + \dt x_n) \cdot \dt x_2 + \cdot +
-  \frac{\pal f}{\pal x_n}(x_{1, 0}, \ldots, x_{n - 1, 0}, \xi_n) \cdot x_n$
+  \frac{\pal f}{\pal x_n}(x_{1, 0}, \ldots, x_{n - 1, 0}, \xi_n) \cdot \dt x_n =$
+  \kmlt{\frac{\pal f}{\pal x_1}(\vc x_0)\dt x_1 + \ldots +
+  \frac{\pal f}{\pal x_n}(\vc x_0)\dt x_n
+  + \fd{\frac{\pal f}{\pal x_1}(\xi_1, x_{2, 0} + \dt x_2, \ldots, x_{n, 0} +
+  \dt x_n) - \frac{\pal f}{\pal x_n}(\vc x_0)} + \ldots + \\
+  + \fd{\frac{\pal f}{\pal x_1}(x_{1, 0}, x_{2, 0} + \dt x_2, \ldots, x_{n - 1, 0} +
+  \dt x_{n - 1} + \xi_n) - \frac{\pal f}{\pal x_n}(\vc x_0)} \fuck}
 }
 
 \tpic{Эээ}{
+  \tdraw[-Stealth]{(-2.6, -2)--(2.8, -2)}
+  \tdraw[-Stealth]{(-2, -2.6)--(-2, 2.2)}
   \tp[fill=black!10]{(0, 0) circle (1.4)}
-  \tp{(0, 0) node {$\vc x_0$}}
+  % \tp{(0, 0) node {$\vc x_0$}}
+  \tp[fill]{(0, 0) circle (.03) node[below left] {$\vc x_0$}}
+  \tp[fill]{($(0, 0)+(.5, .5)$) circle (.03) node[above right] {$\vc x_0 + \dt
+  \vc x$}}
 }

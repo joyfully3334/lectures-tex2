@@ -1,0 +1,155 @@
+\lectureinfo{4}{13.02.2026}
+
+\jnt{
+  Условие \hyperref[theorem6.2.3]{теоремы 3} не является необходимым.
+}
+
+\jexm{
+  \[ y = \sqrt[3]{x^2y^2} \]
+}
+
+\jnt{
+  Также как и для функций одного переменного, из дифференцируемости $f, g$ в
+  точке $\vc x_0$ сделует дифференцируемость в точке $\vc x_0$, а также $f \pm
+  g, f \cdot g, \frac{f}{g} (g(\vc x_0) \neq 0)$, и $d(f \pm g) = df \pm g,
+  d(f \cdot g) = g \cdot df + f \cdot dg, d\fd{\frac{f}{g}} = \frac{g \cdot df -
+  f \cdot dg}{g^2}$ в точке $\vc x_0$
+}
+
+\jth{
+  Если $f$ дифференцируема в точке $\vc y_0 \in R^m$, а функции $g_j(\vc x)$
+  дифференцируемы в точке $\vc x_0 \in R^n$, причем $g_j(\vc x_0) = y_{j, 0}$,
+  $\vc y_0 = (y_{1, 0}, \ldots, y_{n, 0}), j = 1, \ldots, m$, то сложная
+  функция $h(\vc x) = f(g_1(\vc x), \ldots, g_m(\vc x))$ дифференцируема в точке
+  $\vc x_0$, причем
+  \[ \grad h(\vc x_0) = \grad f(\vc y_0) \cdot 
+  \fd{\jarr{c}{\grad g_1(\vc x_0) \\ \vdots \\ \grad g_m(\vc x_0)}}\]
+}
+
+\jprf{
+  \kmlt{\dt h(\vc x_0) = f(g_1(\vc x_0 + \dt x), \ldots, g_m(\vc x_0 + \dt x)) -
+  f(g_1(\vc x_0), \ldots, g_m(\vc x_0)) = \\
+= \dt f(\vc y_0) = (\grad f(\vc y_0), \dt y) + o(\fp{\dt y}) = \\
+  = \grad f(\vc y_0) \cdot
+  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) + o_1(\fp{\dt x}) \\ \vdots \\
+  (\grad g_n(\vc x_0), \dt x) + o_n(\fp{\dt x})}} +
+  o(\fp{\dt y}) = \\
+  = \grad f(\vc y_0) \cdot
+  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) \\ \vdots \\ \grad (\grad g_n(\vc x_0), \dt x)}} +
+  \grad f(\vc y_0) \cdot
+  \fd{\jarr{c}{o_1(\fp{\dt x}) \\ \vdots \\ o_n(\fp{\dt x})}} +
+  o(\fp{\dt y})}
+  Тогда $\dt y_j = (\grad g_j(\vc x_0), \dt x) + o(\fp{\dt x})$
+  где $y_i := g_i(\vc x_0 + \dt x) - g_i(\vc x_0)$.
+}
+
+\jcrl{
+  (Инвариантность формы первого дифференциала). Формула для дифференциала
+  функции $f(\vc x): df = \sm{j = 1}{n} \frac{\pal f}{\pal x_j} dx_j$
+  справедлива как в случае, когда $x_1, \ldots, x_n$ --- независимые переменные,
+  так и в случае, когда $x_j$ --- дифференцируемы функции от других независимых
+  переменных.
+}
+
+\jprf{
+  Пусть $f(\vc x) = f(g_1(\vc t), \ldots, g_n(\vc t)) =: h(\vc t)$. Тогда
+  \kmlt{df =
+  dh = \sm{k = 1}{m} \frac{\pal h}{\pal t_k} dt_k = \sm{k = 1}{m} \sm{j = 1}{n}
+  \frac{\pal f}{\pal x_j} \cdot \frac{\pal g_j}{\pal t_k} dt_k = \\ = \sm{j = 1}{n}
+  \frac{\pal f}{\pal x_j}\fd{\sm{k = 1}{m} \frac{\pal g_j}{\pal t_k} dt_k} =
+  \sm{j = 1}{n} \frac{\pal f}{\pal x_j} dg_j = \sm{j = 1}{n} \frac{\pal f}{\pal
+  x_j} dx_j}
+}
+
+\section{Геометрический смысл градиента и дифференцируемости}
+
+\jdf[Область]{
+  Область --- это открытое связное множество.
+}
+
+\jdf[Замкнутая область]{
+  Замкнутая область --- это замыкание области.
+}
+
+\jdf[Параметрическая заданная поверхность]{
+  Параметрическая заданной поверхностью называется множество точек пространства
+  $\R^3$, заданных с помощью непрерывных функций $x = x(u, v),\; y = y(u, v),\;
+  z = z(u, v)$ на замкнутой области $\ol D \subset \R^2$.
+}
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \tk[scale=3, 3d view={105}{25}, rounded corners=1pt]{
+      \tdraw[-Stealth, right]{(0, 0, 0)--(1, 0, 0) node {$x$}}
+      \tdraw[-Stealth, below left]{(0, 0, 0)--(0, 1, 0) node {$y$}}
+      \tdraw[-Stealth, left]{(0, 0, 0)--(0, 0, .6) node {$z$}}
+      \tdraw[canvas is xy plane at z=0]{(.5, .5) circle (.3)}
+    }
+  \end{subfigure}
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \tk[scale=3, rounded corners=3pt]{
+      \tdraw[-Stealth]{(0, 0)--(1, 0) node {$x$}}
+      \tdraw[-Stealth]{(0, 0)--(0, 1) node {$y$}}
+      \tdraw{(.5, .5) circle (.3)}
+    }
+  \end{subfigure}
+\end{figure}
+
+\jdf[Касательная плоскость]{
+  Плоскость, проходящая через точку $N_0$ параметрически заданной поверхности
+  называется касательной к этой поверхности, если угол между ней и любой
+  секущей, проходящей через точки $N_0$ и $N$ поверхности стремится к нулю при
+  $N \to N_0$.
+}
+
+\jdf{
+  График функции $z = f(x, y)$, где $(x, y) \in \ol \Omega$:
+  \[ \fc{(x, y, z): (x, y) \in \ol \Omega, z = f(x, y)} \]
+}
+
+\jth{
+  Если $f(x, y)$ дифференцируема в точке $(x_0, y_0)$, то ее график имеет
+  касательную плоскость в точке $(x_0, y_0, z_0),\; z_0 = f(x_0, y_0)$,
+  заданную уравнением
+  \[ z - z_0 = \frac{\pal f}{\pal x}(x_0, y_0)(x - x_0) +
+  \frac{\pal f}{\pal y}(x_0, y_0)(y - y_0) \]
+  Ясно, что заданная плоскость проходит через точку $N_0 = (x_0, y_0, z_0)$.
+  Нормаль к ней имеет координаты $\fd{\frac{\pal f}{\pal x}(x_0, y_0),
+  \frac{\pal f}{\pal y}(x_0, y_0), -1} =: \vc n$
+}
+
+\jprf{
+  \[ \vc{N_0N}: (x - x_0, y - y_0, f(x, y) - f(x_0, y_0)) \]
+  Надо доказать, что
+  \[ \frac{(\vc n, \vc{N_0N})}{\fp{\vc n} \cdot \fp{\vc{N_0N}}} \to \vc 0 \]
+  при $(x - x_0, y - y_0) \to 0$.
+  Тогда
+  \kmlt{\fp{\frac{(\vc n, \vc{N_0N})}{\fp{\vc n} \cdot \fp{\vc{N_0N}}} =
+  \frac{\frac{\pal f}{\pal x}(x_0, y_0)(x - x_0) +
+  \frac{\pal f}{\pal y}(x_0, y_0)(x - x_0) - (f(x, y) - f(x_0, y_0))}{
+  \fp{\vc n} \cdot \sqrt{(x -x_0)^2 + (y - y_0)^2 + (f(x, y) - f(x_0, y_0))^2}
+  }} \le \\
+  \le \frac{\fp{o(\fp{\dt x})}}{1 \cdot \fp{\dt x}}}
+}
+
+\jdf{
+  Производной функции $f$ в точке $\vc x_0 \in \R^n$ по направлению $\vc l \in
+  \R^n \setminus \fc{\vc 0}$ называется предел (если он существует)
+  \[ \frac{\pal f}{\pal \vc l}(\vc x_0) =
+  \lm[t \to +0] \frac{f(\vc x_0 + t\vc l) - f(\vc x_0)}{t}\]
+}
+
+\jth{
+  Если $f$ дифференцируема в точке $\vc x_0 \in \R^n$, то она имеет производные
+  в этой точке по всем направлениям $\vc l \in \R^n \setminus \fc{\vc 0}$,
+  причем $\frac{\pal f}{\pal x} (\vc x_0) = (\grad f(\vc x_0), \vc l)$
+}
+
+\jprf{
+  \[ \frac{f(\vc x_0 + t \vc l) - f(\vc x_0)}{t} =
+  \frac{(\grad f(\vc x_0), t \vc l) + o(|t \vc l|)}{t}
+  = (\grad f(\vc x_0), \vc l) + o(1) \]
+}
