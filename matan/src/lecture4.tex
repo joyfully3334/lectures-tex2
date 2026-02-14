@@ -10,7 +10,7 @@
 
 \jnt{
   Также как и для функций одного переменного, из дифференцируемости $f, g$ в
-  точке $\vc x_0$ сделует дифференцируемость в точке $\vc x_0$, а также $f \pm
+  точке $\vc x_0$ следует дифференцируемость в точке $\vc x_0$, а также $f \pm
   g, f \cdot g, \frac{f}{g} (g(\vc x_0) \neq 0)$, и $d(f \pm g) = df \pm g,
   d(f \cdot g) = g \cdot df + f \cdot dg, d\fd{\frac{f}{g}} = \frac{g \cdot df -
   f \cdot dg}{g^2}$ в точке $\vc x_0$
@@ -86,16 +86,23 @@
       \tdraw[-Stealth, below left]{(0, 0, 0)--(0, 1, 0) node {$y$}}
       \tdraw[-Stealth, left]{(0, 0, 0)--(0, 0, .6) node {$z$}}
       \tdraw[canvas is xy plane at z=0]{(.5, .5) circle (.3)}
+      \tp{(0, 0, 0) node[left] {$O$}}
+      \tp[canvas is xy plane at z=0]{(.5, .5) node {$D$}}
     }
+    \caption{3d}
   \end{subfigure}
   \begin{subfigure}{0.4\textwidth}
     \centering
     \tk[scale=3, rounded corners=3pt]{
-      \tdraw[-Stealth]{(0, 0)--(1, 0) node {$x$}}
-      \tdraw[-Stealth]{(0, 0)--(0, 1) node {$y$}}
+      \tdraw[-Stealth]{(0, 0)--(1, 0) node[below left] {$x$}}
+      \tdraw[-Stealth]{(0, 0)--(0, 1) node[below left] {$y$}}
       \tdraw{(.5, .5) circle (.3)}
+      \tp{(0, 0) node[below left] {$O$}}
+      \tp{(.5, .5) node {$D$}}
     }
+    \caption{Вид сверху}
   \end{subfigure}
+  \caption{Параметрически заданная поверхность собственной персоной}
 \end{figure}
 
 \jdf[Касательная плоскость]{
