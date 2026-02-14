@@ -203,13 +203,9 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 
 \newcommand{\theoremindex}[6]{
   \ifstrempty{#1} {
-    \index{#4#2!
-      \arabic{chapter}?\arabic{section}!
-      \alph{#6}@#3 #5.}
+    \index{#4#2!\arabic{chapter}?\arabic{section}!\alph{#6}@#3 #5.}
   }{
-    \index{#4#2!
-      \arabic{chapter}?\arabic{section}!
-      \alph{#6}@#3 #5. #1}
+    \index{#4#2!\arabic{chapter}?\arabic{section}!\alph{#6}@#3 #5. #1}
   }
 }
 
@@ -509,8 +505,11 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \newcommand{\inditn} [1]{\ \hfill
   \setcounter{indchap}{0}
   \setcounter{indsec}{0}
-  {\large \textbf{#1}}
+  \tk[overlay]{
+    \tp{(-0.27, 0) node {\large #1}}
+  }
 }
+
 \newcommand{\indito} [1]{\ \hfill \vspace{1ex}
   \IfSubStrBefore{#1}{\theindchap}{?}{
     \tk[overlay, gray]{\tdraw{(-2.7, 0)--(2.7, 0)}
