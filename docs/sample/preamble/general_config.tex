@@ -205,7 +205,7 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
   \ifstrempty{#1} {
     \index{#4#2!
       \arabic{chapter}?\arabic{section}!
-      \alph{#6}@#3 #5}
+      \alph{#6}@#3 #5.}
   }{
     \index{#4#2!
       \arabic{chapter}?\arabic{section}!
@@ -532,9 +532,17 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 }
 
 \newcommand{\inditt} [1]{
-  \StrBehind{#1}{ }[\tmpt]
-  \StrBefore{\tmpt.}{.}[\tmpb]
-  \setcounter{indnum}{\tmpb}
+  \StrCount{#1}{.}[\tmpd]
+  \ifnum \tmpd=3
+    \StrBetween[2,3]{#1}{.}{.}[\tmp]
+  \else
+    \ifnum \tmpd=2
+      \StrBetween[1,2]{#1}{.}{.}[\tmp]
+    \else
+      \StrBetween{#1}{ }{.}[\tmp]
+    \fi
+  \fi
+  \setcounter{indnum}{\tmp}
   \IfBeginWith{#1}{Т}{\def\tmps{theorem}}{
     \IfBeginWith{#1}{Л}{\def\tmps{lemma}}{
       \IfBeginWith{#1}{У}{\def\tmps{proposition}}{
