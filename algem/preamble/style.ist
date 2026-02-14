@@ -1,13 +1,1 @@
-preamble "\\begin{theindex}\n{"
-
-item_0  "}\\vspace{2ex}\n\\item \\inditn{"
-
-item_x1 "} \\vspace{1ex}\\hfill \\ \n\\item \\indito{"
-item_1              "}\n\\item \\indito{"
-
-item_x2 "} \\hfill \\ \n\\item \\inditt{"
-item_2              "}\n\\item \\inditt{"
-
-delim_2 "} \\inditx{\\dotfill "
-
-postamble "}\n\n\\end{theindex}\n"
+../../docs/sample/preamble/style.ist
