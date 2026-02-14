@@ -532,7 +532,9 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 }
 
 \newcommand{\inditt} [1]{
-  \addtocounter{indnum}{1}
+  \StrBehind{#1}{ }[\tmpt]
+  \StrBefore{\tmpt.}{.}[\tmpb]
+  \setcounter{indnum}{\tmpb}
   \IfBeginWith{#1}{Т}{\def\tmps{theorem}}{
     \IfBeginWith{#1}{Л}{\def\tmps{lemma}}{
       \IfBeginWith{#1}{У}{\def\tmps{proposition}}{
