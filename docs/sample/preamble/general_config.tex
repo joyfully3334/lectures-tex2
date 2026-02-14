@@ -1,5 +1,8 @@
 \documentclass[12pt, a4paper]{extreport}
 
+\usepackage{comment}
+\newcommand{\commenting}[1]{\begin{comment}#1\end{comment}}
+
 %%% Предметный указатель
 \usepackage{imakeidx}
 \makeindex[columns=2, intoc, options={-s preamble/style.ist}]
@@ -210,6 +213,17 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
   }
 }
 
+% Add fallback for mathbb
+\makeatletter
+\let\@mathbb\mathbb
+\makeatother
+
+\makeatletter
+\renewcommand{\mathbb}[1]{
+  \ifnum \mathstyle=-1 #1 \else \@mathbb{#1} \fi
+}
+\makeatother
+
 \newcommand{\mylbl}[1]{\label{#1\arabic{chapter}.\arabic{section}.\arabic{#1}}}
 
 %%% Окружения (начинаются с j или k)
@@ -373,7 +387,7 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \newcommand{\fc} [1]{\left\{ #1 \right\}} % Curly braces
 \newcommand{\fa} [1]{\langle #1 \rangle}  % Angles
 
-%%% Tikz (начинаются с t) WIP!!!!
+%%% Tikz (начинаются с t)
 \newcommand{\tk}  [2][]{
   \begin{tikzpicture}[remember picture,#1]
     #2
@@ -488,32 +502,49 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \usepackage{xstring}
 
 %%% Комманды для предметного указателя
-\newcounter{tmpchap}
-\newcounter{tmpsec}
+\newcounter{indchap}
+\newcounter{indsec}
+\newcounter{indnum}
 
 \newcommand{\inditn} [1]{\ \hfill
-  \setcounter{tmpchap}{0}
-  \setcounter{tmpsec}{0}
+  \setcounter{indchap}{0}
+  \setcounter{indsec}{0}
   {\large \textbf{#1}}
 }
 \newcommand{\indito} [1]{\ \hfill \vspace{1ex}
-  \IfSubStrBefore{#1}{\thetmpchap}{?}{
+  \IfSubStrBefore{#1}{\theindchap}{?}{
     \tk[overlay, gray]{\tdraw{(-2.7, 0)--(2.7, 0)}
       \tnode[fill=white]{
-        {\footnotesize \S \StrBehind{#1}{?}[\tmpc]\tmpc\setcounter{tmpsec}{\tmpc}}
+        {\footnotesize \S \StrBehind{#1}{?}[\tmpc]\tmpc\setcounter{indsec}{\tmpc}}
       }
     }
   }
   {
     \tk[overlay, gray]{\tdraw{(-4, 0)--(4, 0)}
       \tnode[fill=white]{
-        {\small Глава \StrBefore{#1}{?}[\tmpp]\tmpp\setcounter{tmpchap}{\tmpp}}
+        {\small Глава \StrBefore{#1}{?}[\tmpp]\tmpp\setcounter{indchap}{\tmpp}}
+      }
+    }
+    \StrBehind{#1}{?}[\tmpd]
+    \setcounter{indsec}{\tmpd}
+  }
+  \setcounter{indnum}{0}
+}
+
+\newcommand{\inditt} [1]{
+  \addtocounter{indnum}{1}
+  \IfBeginWith{#1}{Т}{\def\tmps{theorem}}{
+    \IfBeginWith{#1}{Л}{\def\tmps{lemma}}{
+      \IfBeginWith{#1}{У}{\def\tmps{proposition}}{
+        \IfBeginWith{#1}{О}{\def\tmps{definition}}{\def\tmps{cringe}}
       }
     }
   }
+  \small \hyperref[\tmps\theindchap.\theindsec.\theindnum]{#1}
+  \dotfill
+  \pageref{\tmps\theindchap.\theindsec.\theindnum}
 }
-\newcommand{\inditt} [1]{\small #1}
-\newcommand{\inditx} [1]{#1}
+\newcommand{\inditx} [1]{\iffalse #1 \fi}
 
 %%% Свои значки в \itemize
 \setlist[itemize,1]{label=$*$}
