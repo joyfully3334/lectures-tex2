@@ -35,7 +35,7 @@
       - general_config.tex -> /docs/sample/preamble/general_config.tex
       - introduction.tex
       - specific_config.tex
-      - style.ist
+      - style.ist -> /docs/sample/preamble/style.ist
       - title.tex -> /docs/sample/preamble/general_config.tex
     - src/
       - Файлы с техом лекций
@@ -49,7 +49,7 @@
     - PDF files
   - scripts
     - clean_pdf.sh
-    - prepare_pdf.sh
+    - compile_and_prepare.sh
   - .gitignore
   - CONTRIBUTING.md
   - LICENSE
@@ -67,7 +67,7 @@
 - `title.tex` содержит титульную страницу
 
 При копировании `/docs/sample` в (например) `/algem`, не забудьте заменить
-`general_config.tex` и `title.tex` на ссылки.
+`general_config.tex`, `style.ist` и `title.tex` на ссылки.
 
 ## Команды
 
@@ -166,12 +166,11 @@
 
 ### Команды Tikz
 
-WIP!!!!
-
 Команды для рисования графики.
 
 | Название                               | Пояснение                        |
 | -------------------------------------- | -------------------------------- |
+| `\tk[opts]{caption}{...}`              | Окружение Tikz                   |
 | `\tpic[opts]{caption}{...}`            | Окружение Tikz с подписью        |
 | `\dpic[opts]{...}`                     | Окружение Tikz без подписи       |
 | `\twrap[opts]{caption}{mod}{len}{...}` | `\tpic`, обернутый текстом       |
@@ -229,5 +228,5 @@ WIP!!!!
 
 ## Примечания
 
-- В LaTeX в квадратных скобках находится (не более чем один) необязательный
-  элемент, а в фигурных скобках обязательные аргументы (могут быть пустыми)
+- В LaTeX в квадратных скобках находятся необязательные аргументы,
+а в фигурных скобках обязательные аргументы (могут быть пустыми)
