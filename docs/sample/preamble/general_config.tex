@@ -445,31 +445,28 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \newcommand{\tm}     [2][]{\tmatrix[#1]{#2}}
 
 \newcommand{\vc}[1]{
-  % \mathstyle % To debug styles
-  {}           % To fix some strange issues
-  \ifnum \mathstyle>6
+  {} % This is important
+  % \mathstyle
+  \ifnum \mathstyle>3
     \tk[baseline]{
-      \def\vup{0.16ex}
-      \node[inner sep=0pt, anchor=base] (char) {$\scriptscriptstyle #1$};
-      \draw[-{Stealth[length=.6mm]}, very thin]
-      ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
+      \def\vup{0.27ex}
+      \def\ladd{0em}
+      \IfEqCase{#1}{{l}{\def\ladd{.03}}{t}{\def\ladd{.03}}}
+
+      \node[inner sep=0pt, anchor=base] (char) {$\scriptstyle #1$};
+      \draw[-{Triangle[length=.6mm, width=.5mm]}]
+      ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
     }
   \else
-    \ifnum \mathstyle>3
-      \tk[baseline]{
-        \def\vup{0.2ex}
-        \node[inner sep=0pt, anchor=base] (char) {$\scriptstyle #1$};
-        \draw[-{Stealth[length=.8mm]}]
-        ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
-      }
-    \else
-      \tk[baseline]{
-        \def\vup{0.35ex}
-        \node[inner sep=0pt, anchor=base] (char) {$#1$};
-        \draw[-{Stealth[length=1mm]}]
-        ($(char.north west) + (0.03,\vup)$) -- ($(char.north east)+(0,\vup)$);
-      }
-    \fi
+    \tk[baseline]{
+      \def\vup{0.39ex}
+      \def\ladd{0em}
+      \IfEqCase{#1}{{l}{\def\ladd{.04}}{t}{\def\ladd{.04}}}
+
+      \node[inner sep=0pt, anchor=base] (char) {$#1$};
+      \draw[-{Triangle[length=.7mm, width=.6mm]}]
+      ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
+    }
   \fi
 }
 
