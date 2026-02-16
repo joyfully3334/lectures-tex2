@@ -177,14 +177,31 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 
 \renewcommand{\implies}{\;\To\;}
 
-\newcommand{\display}[1]{
-  \displaystyle
-  #1
-  \ifnum \mathstyle>6
-    a
+\newcommand{\stylespecific}[5][]{
+  \ifstrempty{#1}{\def\tmpstyleoo{\mathstyle}}{\def\tmpstyleoo{#1}}
+  \ifnum \tmpstyleoo<1     % Display style
+    \ifstrempty{#2}{#3}{#2}
   \else
-    b
+    \ifnum \tmpstyleoo<4   % Text style
+      #3
+    \else
+      \ifnum \tmpstyleoo<6 % Script style
+        \ifstrempty{#4}{#3}{#4}
+      \else                % Script script style
+        \ifstrempty{#5}{
+          \ifstrempty{#4}{#3}{#4}
+        }{#5}
+      \fi
+    \fi
   \fi
+}
+
+\newcounter{styll}
+\newcommand{\tmpstyle}[1]{
+  \setcounter{styll}{\mathstyle}
+  #1
+  \stylespecific[\thestyll]{\displaystyle}{\textstyle}
+  {\scriptstyle}{\scriptscriptstyle}
 }
 
 \newcommand{\rev}      {^{-1}}
@@ -194,11 +211,11 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \newcommand{\ndv}      {\nmid}
 \newcommand{\supr}[1]  {^{\fd{#1}}}
 \newcommand{\then}     {\;\,}
-\newcommand{\lm}  [1][]{\displaystyle \lim_{#1} \textstyle}
-\newcommand{\dlm} [2]  {\displaystyle \lim_{\substack{#1 \\ #2}} \textstyle}
-\newcommand{\sm}  [2]  {\displaystyle \sum_{#1}^{#2} \textstyle}
+\newcommand{\lm}  [1][]{\lim\limits_{#1}}
+\newcommand{\dlm} [2]  {\lim_{\substack{#1 \\ #2}}}
+\newcommand{\sm}  [2]  {\tmpstyle{\displaystyle \sum_{#1}^{#2}}}
 \newcommand{\smm} [2]  {\sum\limits_{#1}^{#2}}
-\newcommand{\prd} [2]  {\displaystyle \prod_{#1}^{#2} \textstyle}
+\newcommand{\prd} [2]  {\tmpstyle{\displaystyle \prod_{#1}^{#2}}}
 \newcommand{\prdm}[2]  {\prod\limits_{#1}^{#2}}
 
 \newcommand{\theoremindex}[6]{
@@ -374,23 +391,23 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 \newcommand{\jct}         [2][]{\jcustom[#1]{#2}}
 
 %%% Скобки (начинаются с f)
-\newcommand{\fd} [1]{\left( #1 \right)}   % Parentheses
-\newcommand{\fb} [1]{\left[ #1 \right]}   % Brackets
-\newcommand{\fp} [1]{\left| #1 \right|}   % Pipes
-\newcommand{\fpp}[1]{\left\| #1 \right\|} % double PiPes
-\newcommand{\fdp}[1]{\left\| #1 \right\|} % Double Pipes
-\newcommand{\fP} [1]{\left\| #1 \right\|} % double Pipes
-\newcommand{\fc} [1]{\left\{ #1 \right\}} % Curly braces
-\newcommand{\fa} [1]{\langle #1 \rangle}  % Angles
+\newcommand{\fd} [1]{\left(       #1 \right)}       % Parentheses
+\newcommand{\fb} [1]{\left[       #1 \right]}       % Brackets
+\newcommand{\fp} [1]{\left|       #1 \right|}       % Pipes
+\newcommand{\fpp}[1]{\left\|      #1 \right\|}      % double PiPes
+\newcommand{\fdp}[1]{\left\|      #1 \right\|}      % Double Pipes
+\newcommand{\fP} [1]{\left\|      #1 \right\|}      % double Pipes
+\newcommand{\fc} [1]{\left\{      #1 \right\}}      % Curly braces
+\newcommand{\fa} [1]{\left\langle #1 \right\rangle} % Angles
 
-\newcommand{\sfd} [1]{\left( #1 \right)}   % Small Parentheses
-\newcommand{\sfb} [1]{\left[ #1 \right]}   % Small Brackets
-\newcommand{\sfp} [1]{\left| #1 \right|}   % Small Pipes
-\newcommand{\sfpp}[1]{\left\| #1 \right\|} % Small double PiPes
-\newcommand{\sfdp}[1]{\left\| #1 \right\|} % Small Double Pipes
-\newcommand{\sfP} [1]{\left\| #1 \right\|} % Small double Pipes
-\newcommand{\sfc} [1]{\left\{ #1 \right\}} % Small Curly braces
-\newcommand{\sfa} [1]{\langle #1 \rangle}  % Small Angles
+\newcommand{\sfd} [1]{(       #1 )}       % Small Parentheses
+\newcommand{\sfb} [1]{[       #1 ]}       % Small Brackets
+\newcommand{\sfp} [1]{|       #1 |}       % Small Pipes
+\newcommand{\sfpp}[1]{\|      #1 \|}      % Small double PiPes
+\newcommand{\sfdp}[1]{\|      #1 \|}      % Small Double Pipes
+\newcommand{\sfP} [1]{\|      #1 \|}      % Small double Pipes
+\newcommand{\sfc} [1]{\{      #1 \}}      % Small Curly braces
+\newcommand{\sfa} [1]{\langle #1 \rangle} % Small Angles
 
 %%% Tikz (начинаются с t)
 \newcommand{\tk}  [2][]{
@@ -446,18 +463,7 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
 
 \newcommand{\vc}[1]{
   {} % This is important
-  % \mathstyle
-  \ifnum \mathstyle>3
-    \tk[baseline]{
-      \def\vup{0.27ex}
-      \def\ladd{0em}
-      \IfEqCase{#1}{{l}{\def\ladd{.03}}{t}{\def\ladd{.03}}}
-
-      \node[inner sep=0pt, anchor=base] (char) {$\scriptstyle #1$};
-      \draw[-{Triangle[length=.6mm, width=.5mm]}]
-      ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
-    }
-  \else
+  \stylespecific{}{
     \tk[baseline]{
       \def\vup{0.39ex}
       \def\ladd{0em}
@@ -467,7 +473,27 @@ positioning, fit, 3d, perspective, decorations.pathmorphing}
       \draw[-{Triangle[length=.7mm, width=.6mm]}]
       ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
     }
-  \fi
+  }{
+    \tk[baseline]{
+      \def\vup{0.27ex}
+      \def\ladd{0em}
+      \IfEqCase{#1}{{l}{\def\ladd{.04}}{t}{\def\ladd{.04}}}
+
+      \node[inner sep=0pt, anchor=base] (char) {$\scriptstyle #1$};
+      \draw[-{Triangle[length=.6mm, width=.5mm]}]
+      ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
+    }
+  }{
+    \tk[baseline]{
+      \def\vup{0.22ex}
+      \def\ladd{0em}
+      \IfEqCase{#1}{{l}{\def\ladd{.03}}{t}{\def\ladd{.03}}}
+
+      \node[inner sep=0pt, anchor=base] (char) {$\scriptscriptstyle #1$};
+      \draw[-{Triangle[length=.5mm, width=.4mm]}]
+      ($(char.north west) + (0.03-\ladd,\vup)$) -- ($(char.north east)+(\ladd,\vup)$);
+    }
+  }
 }
 
 %%% Replace
