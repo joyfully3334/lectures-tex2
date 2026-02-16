@@ -46,54 +46,52 @@
   линейно связное, то $\exists \vc x_1, \vc x_2 \in G$ такие, что их нельзя
   соединить кривой в $G$. Введем следующие множества:
   \[  G_1 := \fc{\vc x \in G: \vc x \text{ нельзя соединить с $\vc x_1$ кривой в
-  $G$}} \]
-  \[ G_2 = G \setminus G_1 \]
+  $G$}};\ \ G_2 = G \setminus G_1 \]
   Данные множества очевидно непустые и не пересекаются.
 
-  Докажем, что $G_2$
-  открыто в $G$. Пусть $\vc x_0 \in G_2 \subset G$ тогда
+  Докажем, что $G_2$ открыто в $G$. Пусть $\vc x_0 \in G_2 \subset G$ тогда
   $\exists \epsilon > 0: U_\epsilon(\vc x_0) \subset G$. Отсюда $U_\epsilon(\vc
-  x_0) \subset G_2$, значит $G_2$ --- открыто.
-
-  Теперь докажем, что $G_1$ открыто. От противного,
+  x_0) \subset G_2$, значит $G_2$ --- открыто. Теперь докажем, что $G_1$
+  открыто. От противного,
   \[ \exists \vc x_0 \in G_1: \forall \epsilon > 0
     \hk U_\epsilon(\vc x_0) \cap G_2
   \neq \varnothing \]
   \[ \exists \epsilon_1 > 0: U_{\epsilon_1}(\vc x_0) \subset G
   \hk \vc y \in U_{\epsilon_1}(\vc x_0) \cap G_2\]
   Противоречие.
+
+  \begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+      \centering
+      \tk[draw]{
+        \tp[fill=black!10]{(1, .5) circle (1)}
+        \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
+        \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
+        \tp[draw, -Stealth]{(-1, -1) ..controls (-.7, 0) and (.4, -.7) .. (1, .5)}
+        \tp[fill]{(.7, 1.2) circle (.03)}
+        \tp[draw]{(1, .5)--(.7, 1.2)}
+        \tp{(-.6, 0) node {$\gamma \subset G$}}
+      }
+      \caption{Открытость $G_2$}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+      \centering
+      \tk{
+        \tp[fill=black!10]{(1, .5) circle (1)}
+        \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
+        \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
+        \tp[fill]{(.7, 1.2) circle (.03) node[above left] {$\vc y_0$}}
+        \tp[draw, -Stealth]{(-1, -1) ..controls (.1, -.3) and (-.5, .3) .. (.7, 1.2)}
+        \tp{(-.9, .3) node {$\gamma \subset G$}}
+        \tp[draw]{(1, .5)--(.7, 1.2)}
+      }
+      \caption{Открытость $G_1$}
+    \end{subfigure}
+    \caption{Примеры на $\R^2$ для \hyperref[theorem6.1.6]{теоремы 6}}
+  \end{figure}
 }
 
-\begin{figure}[ht]
-    \centering
-  \begin{subfigure}{0.4\textwidth}
-    \centering
-    \tk[draw]{
-      \tp[fill=black!10]{(1, .5) circle (1)}
-      \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
-      \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
-      \tp[draw, -Stealth]{(-1, -1) ..controls (-.7, 0) and (.4, -.7) .. (1, .5)}
-      \tp[fill]{(.7, 1.2) circle (.03)}
-      \tp[draw]{(1, .5)--(.7, 1.2)}
-      \tp{(-.6, 0) node {$\gamma \subset G$}}
-    }
-    \caption{Открытость $G_2$}
-  \end{subfigure}
-  \begin{subfigure}{0.4\textwidth}
-    \centering
-    \tk{
-      \tp[fill=black!10]{(1, .5) circle (1)}
-      \tp[fill]{(-1, -1) circle (.03) node[above left] {$\vc x_1$}}
-      \tp[fill]{(1, .5) circle (.03) node[below right] {$\vc x_0$}}
-      \tp[fill]{(.7, 1.2) circle (.03) node[above left] {$\vc y_0$}}
-      \tp[draw, -Stealth]{(-1, -1) ..controls (.1, -.3) and (-.5, .3) .. (.7, 1.2)}
-      \tp{(-.9, .3) node {$\gamma \subset G$}}
-      \tp[draw]{(1, .5)--(.7, 1.2)}
-    }
-    \caption{Открытость $G_1$}
-  \end{subfigure}
-  \caption{Примеры на $\R^2$ для \hyperref[theorem6.1.6]{теоремы 6}}
-\end{figure}
 
 \section{Дифференцируемость функций многих переменных}
 
@@ -223,12 +221,13 @@
   \dt x_{n - 1} + \xi_n) - \frac{\pal f}{\pal x_n}(\vc x_0)} \fuck}
 }
 
-\tpic{Эээ}{
-  \tdraw[-Stealth]{(-2.6, -2)--(2.8, -2)}
-  \tdraw[-Stealth]{(-2, -2.6)--(-2, 2.2)}
+\tpic{Иллюстрация к \hyperref[theorem6.2.3]{теореме 3}}{
+  \tdraw[-Stealth]{(-2.8, -2)--(2.8, -2) node[below left] {$x_n$}}
+  \tdraw[-Stealth]{(-2, -2.8)--(-2, 2.2)}
+  \tp{(-2, -2) node[below left] {$O$}}
   \tp[fill=black!10]{(0, 0) circle (1.4)}
-  % \tp{(0, 0) node {$\vc x_0$}}
   \tp[fill]{(0, 0) circle (.03) node[below left] {$\vc x_0$}}
-  \tp[fill]{($(0, 0)+(.5, .5)$) circle (.03) node[above right] {$\vc x_0 + \dt
+  \tp[fill]{($(0, 0)+(1.1, .6)$) circle (.03) node[above right] {$\vc x_0 + \dt
   \vc x$}}
+  \tp[draw]{(.5, -2) node[below] {$\xi_n$}--+(0, .1)--+(0, -.1)}
 }
