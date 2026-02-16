@@ -10,10 +10,19 @@
 
 \jnt{
   Также как и для функций одного переменного, из дифференцируемости $f, g$ в
-  точке $\vc x_0$ следует дифференцируемость в точке $\vc x_0$, а также $f \pm
-  g, f \cdot g, \frac{f}{g} (g(\vc x_0) \neq 0)$, и $d(f \pm g) = df \pm g,
-  d(f \cdot g) = g \cdot df + f \cdot dg, d\fd{\frac{f}{g}} = \frac{g \cdot df -
-  f \cdot dg}{g^2}$ в точке $\vc x_0$
+  точке $\vc x_0$ следует дифференцируемость в точке $\vc x_0$
+  \jit{
+    \item $f \pm g$
+    \item $f \cdot g$
+    \item $\displaystyle \frac{f}{g}$ при $g(\vc x_0) \neq 0$
+  }
+  а также следующие равенства в точке $\vc x_0$
+  \jit{
+    \item $d(f \pm g) = df \pm g$
+    \item $d(f \cdot g) = g \cdot df + f \cdot dg$
+    \item $\displaystyle d\fd{\frac{f}{g}} = \frac{g \cdot df - f \cdot dg}{g^2}$
+      при $g(\vc x_0) \neq 0$
+  }
 }
 
 \jth{
@@ -35,7 +44,7 @@
   (\grad g_n(\vc x_0), \dt x) + o_n(\fp{\dt x})}} +
   o(\fp{\dt y}) = \\
   = \grad f(\vc y_0) \cdot
-  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) \\ \vdots \\ \grad (\grad g_n(\vc x_0), \dt x)}} +
+  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) \\ \vdots \\ \grad g_n(\vc x_0), \dt x)}} +
   \grad f(\vc y_0) \cdot
   \fd{\jarr{c}{o_1(\fp{\dt x}) \\ \vdots \\ o_n(\fp{\dt x})}} +
   o(\fp{\dt y})}
