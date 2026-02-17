@@ -12,23 +12,23 @@
   Также как и для функций одного переменного, из дифференцируемости $f, g$ в
   точке $\vc x_0$ следует дифференцируемость в точке $\vc x_0$
   \jit{
-    \item $f \pm g$
-    \item $f \cdot g$
-    \item $\displaystyle \frac{f}{g}$ при $g(\vc x_0) \neq 0$
+    \item $f \pm g$,
+    \item $f \cdot g$,
+    \item $\displaystyle \frac{f}{g}$ при $g(\vc x_0) \neq 0$,
   }
   а также следующие равенства в точке $\vc x_0$
   \jit{
-    \item $d(f \pm g) = df \pm g$
-    \item $d(f \cdot g) = g \cdot df + f \cdot dg$
+    \item $d(f \pm g) = df \pm dg$,
+    \item $d(f \cdot g) = g \cdot df + f \cdot dg$,
     \item $\displaystyle d\fd{\frac{f}{g}} = \frac{g \cdot df - f \cdot dg}{g^2}$
-      при $g(\vc x_0) \neq 0$
+      при $g(\vc x_0) \neq 0$.
   }
 }
 
 \jth{
-  Если $f$ дифференцируема в точке $\vc y_0 \in R^m$, а функции $g_j(\vc x)$
-  дифференцируемы в точке $\vc x_0 \in R^n$, причем $g_j(\vc x_0) = y_{j, 0}$,
-  $\vc y_0 = (y_{1, 0}, \ldots, y_{n, 0}), j = 1, \ldots, m$, то сложная
+  Если $f$ дифференцируема в точке $\vc y_0 \in \R^m$, а функции $g_j(\vc x)$
+  дифференцируемы в точке $\vc x_0 \in \R^n$, причем $g_j(\vc x_0) = y_{j, 0}$,
+  $\vc y_0 = (y_{1, 0}, \ldots, y_{n, 0}),\; (j = 1, \ldots, m)$, то сложная
   функция $h(\vc x) = f(g_1(\vc x), \ldots, g_m(\vc x))$ дифференцируема в точке
   $\vc x_0$, причем
   \[ \grad h(\vc x_0) = \grad f(\vc y_0) \cdot 
@@ -36,27 +36,27 @@
 }
 
 \jprf{
-  \kmlt{\dt h(\vc x_0) = f(g_1(\vc x_0 + \dt x), \ldots, g_m(\vc x_0 + \dt x)) -
+  \kmlt{\dt h(\vc x_0) = f(g_1(\vc x_0 + \dt \vc x), \ldots, g_m(\vc x_0 + \dt \vc x)) -
   f(g_1(\vc x_0), \ldots, g_m(\vc x_0)) = \\
 = \dt f(\vc y_0) = (\grad f(\vc y_0), \dt y) + o(\fp{\dt y}) = \\
   = \grad f(\vc y_0) \cdot
-  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) + o_1(\fp{\dt x}) \\ \vdots \\
-  (\grad g_n(\vc x_0), \dt x) + o_n(\fp{\dt x})}} +
-  o(\fp{\dt y}) = \\
+  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt \vc x) + o_1(\fp{\dt \vc x}) \\ \vdots \\
+  (\grad g_m(\vc x_0), \dt \vc x) + o_m(\fp{\dt \vc x})}} +
+  o(\fp{\dt \vc y}) = \\
   = \grad f(\vc y_0) \cdot
-  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt x) \\ \vdots \\ \grad g_n(\vc x_0), \dt x)}} +
+  \fd{\jarr{c}{(\grad g_1(\vc x_0), \dt \vc x) \\ \vdots \\ \grad g_m(\vc x_0), \dt \vc x)}} +
   \grad f(\vc y_0) \cdot
-  \fd{\jarr{c}{o_1(\fp{\dt x}) \\ \vdots \\ o_n(\fp{\dt x})}} +
-  o(\fp{\dt y})}
-  Тогда $\dt y_j = (\grad g_j(\vc x_0), \dt x) + o(\fp{\dt x})$
-  где $y_i := g_i(\vc x_0 + \dt x) - g_i(\vc x_0)$.
+  \fd{\jarr{c}{o_1(\fp{\dt \vc x}) \\ \vdots \\ o_m(\fp{\dt \vc x})}} +
+  o(\fp{\dt y}) = \\
+  = (\grad(\vc x_0), \dt \vc x) + o(\fp{\dt \vc x}),\ \ \dt \vc x \to 0}
+  Таким образом, теорема доказана.
 }
 
 \jcrl{
   (Инвариантность формы первого дифференциала). Формула для дифференциала
   функции $f(\vc x): df = \sm{j = 1}{n} \frac{\pal f}{\pal x_j} dx_j$
   справедлива как в случае, когда $x_1, \ldots, x_n$ --- независимые переменные,
-  так и в случае, когда $x_j$ --- дифференцируемы функции от других независимых
+  так и в случае, когда $x_j$ --- дифференцируемые функции от других независимых
   переменных.
 }
 
@@ -80,39 +80,11 @@
   Замкнутая область --- это замыкание области.
 }
 
-\jdf[Параметрическая заданная поверхность]{
-  Параметрическая заданной поверхностью называется множество точек пространства
+\jdf[Параметрически заданная поверхность]{
+  Параметрически заданной поверхностью называется множество точек пространства
   $\R^3$, заданных с помощью непрерывных функций $x = x(u, v),\; y = y(u, v),\;
   z = z(u, v)$ на замкнутой области $\ol D \subset \R^2$.
 }
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{0.4\textwidth}
-    \centering
-    \tk[scale=3, 3d view={105}{25}, rounded corners=1pt]{
-      \tdraw[-Stealth, right]{(0, 0, 0)--(1, 0, 0) node {$x$}}
-      \tdraw[-Stealth, below left]{(0, 0, 0)--(0, 1, 0) node {$y$}}
-      \tdraw[-Stealth, left]{(0, 0, 0)--(0, 0, .6) node {$z$}}
-      \tdraw[canvas is xy plane at z=0]{(.5, .5) circle (.3)}
-      \tp{(0, 0, 0) node[left] {$O$}}
-      \tp[canvas is xy plane at z=0]{(.5, .5) node {$D$}}
-    }
-    \caption{3d}
-  \end{subfigure}
-  \begin{subfigure}{0.4\textwidth}
-    \centering
-    \tk[scale=3, rounded corners=3pt]{
-      \tdraw[-Stealth]{(0, 0)--(1, 0) node[below left] {$x$}}
-      \tdraw[-Stealth]{(0, 0)--(0, 1) node[below left] {$y$}}
-      \tdraw{(.5, .5) circle (.3)}
-      \tp{(0, 0) node[below left] {$O$}}
-      \tp{(.5, .5) node {$D$}}
-    }
-    \caption{Вид сверху}
-  \end{subfigure}
-  \caption{Параметрически заданная поверхность собственной персоной}
-\end{figure}
 
 \jdf[Касательная плоскость]{
   Плоскость, проходящая через точку $N_0$ параметрически заданной поверхности
